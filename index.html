@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وب ویژن | محمدرضا چنگیزی – طراحی سایت و سئو</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css');
+
+        :root {
+            --black: #0b0b0b;
+            --white: #faf8f2;
+            --paper: #fffdf7;
+            --red: #ff3b3b;
+            --blue: #2979ff;
+            --blue-light: #4facfe;
+            --yellow: #ffcc00;
+            --green: #14c06e;
+            --purple: #a259ff;
+            --pink: #ff2d7a;
+            --orange: #ff6a00;
+            --teal: #00c2b4;
+            --bw: 5px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        /* ── Custom Scrollbar ── */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track {
+            background: var(--paper);
+            border-left: 3px solid var(--black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--yellow);
+            border: 3px solid var(--black);
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--pink); }
+        /* Firefox */
+        * { scrollbar-width: thin; scrollbar-color: var(--yellow) var(--paper); }
+
+        body {
+            font-family: 'Sahel', 'Sahel-FD', Tahoma, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        .ico { width: 20px; height: 20px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
+        .ico-sm { width: 18px; height: 18px; }
+
+        /* ── Hero ── */
+        #hero {
+            position: relative;
+            background: var(--paper);
+            border-bottom: var(--bw) solid var(--black);
+            overflow: hidden;
+        }
+        #hero::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                radial-gradient(#d8d3c8 1.8px, transparent 1.9px),
+                linear-gradient(115deg, rgba(255, 204, 0, 0.08) 0%, transparent 40%),
+                repeating-linear-gradient(45deg, transparent, transparent 22px, rgba(0, 0, 0, .024) 22px, rgba(0, 0, 0, .024) 24px);
+            background-size: 20px 20px, 100% 100%, auto auto;
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative; z-index: 2;
+            max-width: 1280px; margin: 0 auto;
+            padding: 7rem 2.5rem 4rem;
+            display: grid; grid-template-columns: 1.18fr .92fr; gap: 3.4rem; align-items: center;
+        }
+        .hero-copy { text-align: right; }
+
+        /* ── Separator (Zigzag Brutal) ── */
+        .sep-brutal {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.8rem 0;
+            background: var(--black);
+            border-top: var(--bw) solid var(--black);
+            border-bottom: var(--bw) solid var(--black);
+            overflow: hidden;
+        }
+        .sep-brutal::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent 0, transparent 14px,
+                rgba(255, 255, 255, 0.035) 14px, rgba(255, 255, 255, 0.035) 16px
+            );
+            pointer-events: none;
+        }
+        .sep-brutal .sep-track {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .sep-brutal .sep-bar {
+            flex: 1;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--yellow) 0, var(--yellow) 10px,
+                transparent 10px, transparent 16px
+            );
+            position: relative;
+        }
+        .sep-brutal .sep-bar::after {
+            content: "";
+            position: absolute;
+            top: -9px;
+            width: 24px;
+            height: 24px;
+            border: 4px solid var(--yellow);
+            transform: rotate(45deg);
+        }
+        .sep-brutal .sep-bar.right::after { left: -12px; background: var(--pink); }
+        .sep-brutal .sep-bar.left::after { right: -12px; background: var(--blue); }
+
+        .sep-brutal .sep-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .8rem;
+            padding: .3rem 1.8rem;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .sep-brutal .sep-center .sep-diamond {
+            width: 14px;
+            height: 14px;
+            background: var(--yellow);
+            border: 3px solid var(--black);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+        .sep-brutal .sep-center .sep-diamond:nth-child(1) { background: var(--pink); }
+        .sep-brutal .sep-center .sep-diamond:nth-child(3) { background: var(--green); }
+        .sep-brutal .sep-center .sep-label {
+            font-weight: 900;
+            font-size: 1.15rem;
+            letter-spacing: -.5px;
+            color: var(--black);
+            background: var(--yellow);
+            padding: .2rem 1rem;
+            border: 4px solid var(--black);
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 0 var(--pink);
+            white-space: nowrap;
+        }
+        .sep-brutal .sep-center .sep-label span {
+            background: var(--black);
+            color: var(--yellow);
+            padding: 0 .35rem;
+        }
+
+        /* ── Hero Brand Typography ── */
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: .65rem;
+            border: 4px solid var(--black);
+            background: var(--white);
+            padding: .45rem 1.05rem;
+            font-weight: 900; font-size: .92rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 1.8rem;
+        }
+        .live-dot {
+            width: 11px; height: 11px; background: var(--green);
+            border: 2px solid var(--black); border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(20, 192, 110, .25);
+            animation: pulse 1.8s infinite;
+        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+
+        .hero-brand {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto .85rem;
+            padding: .22rem 1.55rem .24rem 1.75rem;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            gap: .38rem;
+            background: var(--yellow);
+            color: var(--black);
+            border: var(--bw) solid var(--black);
+            box-shadow: 10px 10px 0 var(--black);
+            transform: rotate(-1deg);
+            font-size: clamp(3.4rem, 8.5vw, 6.6rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            text-align: center;
+        }
+        .hero-brand .brand-wv,
+        .hero-brand .brand-wv-outline {
+            display: inline-block;
+            color: var(--black);
+            background: transparent;
+            -webkit-text-stroke: 0;
+            text-stroke: 0;
+            text-shadow: none;
+            transform: none;
+            padding: 0;
+            letter-spacing: -2px;
+        }
+        .hero-brand .brand-dot {
+            width: 24px; height: 24px;
+            background: var(--green);
+            border: 4px solid var(--black);
+            transform: rotate(45deg);
+            display: inline-block;
+            vertical-align: middle;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        .hero-name-wrap { margin: 1rem 0 1.5rem; }
+        .hero-name {
+            display: inline-block;
+            background: var(--blue); color: #fff;
+            font-size: 1.7rem; font-weight: 900;
+            padding: .55rem 1.8rem;
+            border: var(--bw) solid var(--black);
+            box-shadow: 8px 8px 0 var(--black);
+            transform: rotate(1.5deg);
+            letter-spacing: -.8px;
+        }
+        .hero-desc {
+            font-size: 1.25rem; font-weight: 800; max-width: 520px;
+            background: #fff;
+            border: var(--bw) solid var(--black);
+            padding: 1.05rem 1.4rem;
+            box-shadow: 7px 7px 0 var(--gray);
+            line-height: 1.85; margin-bottom: 1.7rem;
+        }
+        .hero-badges { display: flex; flex-wrap: wrap; gap: .85rem; margin-bottom: 1.8rem; }
+        .hero-badges span {
+            border: 4px solid var(--black); padding: .5rem 1.2rem;
+            font-weight: 900; font-size: .95rem;
+            box-shadow: 4px 4px 0 var(--black); transition: transform .15s;
+        }
+        .hero-badges span:nth-child(1) { background: var(--green); }
+        .hero-badges span:nth-child(2) { background: var(--purple); color: #fff; transform: rotate(1.2deg); }
+        .hero-badges span:nth-child(3) { background: var(--red); color: #fff; transform: rotate(-1.1deg); }
+        .hero-badges span:nth-child(4) { background: var(--blue-light); color: #fff; transform: rotate(1.4deg); }
+        .hero-badges span:hover { transform: translate(-2px, -2px) rotate(0); }
+        .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.2rem; }
+        .btn {
+            display: inline-flex; align-items: center; gap: .55rem;
+            font-weight: 900; font-size: 1.05rem;
+            padding: .85rem 1.6rem;
+            border: 4px solid var(--black);
+            text-decoration: none; color: var(--black);
+            transition: .13s; cursor: pointer; font-family: inherit;
+        }
+        .btn-primary { background: var(--yellow); box-shadow: 6px 6px 0 var(--black); }
+        .btn-primary:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--black); }
+        .btn-ghost { background: #fff; box-shadow: 5px 5px 0 var(--black); }
+        .btn-ghost:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--black); }
+        .hero-stats { display: flex; flex-wrap: wrap; gap: 1rem; font-weight: 900; font-size: .92rem; }
+        .hero-stats div {
+            background: #fff; border: 3px solid var(--black);
+            padding: .5rem 1rem; box-shadow: 4px 4px 0 var(--black);
+        }
+
+        /* Hero visual */
+        .hero-visual { position: relative; min-height: 470px; }
+        .hv-browser {
+            position: absolute; top: 22px; right: 10px; left: 30px;
+            background: #fff; border: var(--bw) solid var(--black);
+            box-shadow: 12px 12px 0 var(--black);
+            border-radius: 6px; overflow: hidden;
+            transform: rotate(-2.5deg);
+        }
+        .hv-browser-top {
+            background: var(--yellow); border-bottom: 4px solid var(--black);
+            padding: .6rem .9rem; display: flex; gap: .5rem; align-items: center;
+            font-weight: 900; font-size: .85rem;
+        }
+        .hv-dots { display: flex; gap: 8px; }
+        .hv-dots i { width: 13px; height: 13px; border: 2px solid var(--black); border-radius: 50%; display: block; }
+        .hv-dots i:nth-child(1) { background: var(--red); }
+        .hv-dots i:nth-child(2) { background: var(--yellow); }
+        .hv-dots i:nth-child(3) { background: var(--green); }
+        .hv-browser-body { padding: 1.5rem 1.2rem; }
+        .hv-line { height: 14px; background: #f1ede3; border: 2px solid var(--black); margin-bottom: .75rem; width: 100%; }
+        .hv-line.short { width: 66%; }
+        .hv-line.tiny { width: 40%; }
+        .hv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 1rem; }
+        .hv-tile {
+            border: 3px solid var(--black); height: 72px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: .9rem;
+        }
+        .hv-tile:nth-child(1) { background: var(--blue-light); color: #fff; transform: rotate(1.5deg); }
+        .hv-tile:nth-child(2) { background: var(--pink); color: #fff; transform: rotate(-1.5deg); }
+        .hv-tile:nth-child(3) { background: var(--teal); color: #fff; }
+        .hv-tile:nth-child(4) { background: var(--orange); color: #fff; transform: rotate(1deg); }
+        .hv-note {
+            position: absolute; border: 4px solid var(--black);
+            box-shadow: 7px 7px 0 var(--black); padding: .8rem 1rem;
+            font-weight: 900; font-size: .9rem; max-width: 180px;
+        }
+        .hv-note.yellow { background: var(--yellow); top: 312px; right: -6px; transform: rotate(4deg); }
+        .hv-note.pink { background: var(--pink); color: #fff; top: 48px; left: -12px; transform: rotate(-7deg); }
+        .hv-float-tag {
+            position: absolute; bottom: 18px; left: 4px;
+            background: var(--green); color: #000;
+            border: 4px solid var(--black); padding: .55rem 1rem;
+            font-weight: 900; box-shadow: 6px 6px 0 var(--black);
+            transform: rotate(-3deg); font-size: .9rem;
+        }
+        .hv-circle {
+            position: absolute; width: 80px; height: 80px;
+            border: 5px solid var(--black); border-radius: 50%;
+            background: var(--purple); top: -14px; left: 52%;
+            box-shadow: 6px 6px 0 var(--black);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 900; font-size: .85rem; transform: rotate(12deg);
+        }
+        .float-shape { position: absolute; z-index: 1; pointer-events: none; }
+        .fs1 { top: 40px; right: 7%; width: 42px; height: 42px; background: var(--red); transform: rotate(22deg); border: 4px solid var(--black); }
+        .fs2 { bottom: 130px; right: 48%; width: 0; height: 0; border-left: 26px solid transparent; border-right: 26px solid transparent; border-bottom: 44px solid var(--teal); filter: drop-shadow(3px 3px 0 #000); }
+        .fs3 { top: 190px; left: 4%; width: 26px; height: 84px; background: var(--blue); border: 4px solid var(--black); transform: rotate(-14deg); }
+
+        /* ── Sections ── */
+        .section {
+            padding: 5rem 2.5rem;
+            border-bottom: var(--bw) solid var(--black);
+            scroll-margin-top: 30px;
+        }
+        .section-title {
+            font-size: 2.65rem; font-weight: 900; text-align: center;
+            margin-bottom: 3.5rem; letter-spacing: -1.4px;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 118px; height: 8px;
+            background: var(--red); margin: .9rem auto 0;
+            border: 3px solid var(--black);
+        }
+
+        /* ── Plans ── */
+        .plans-grid {
+            display: grid; gap: 1.8rem;
+            max-width: 1380px; margin: 0 auto;
+        }
+        .plans-grid { grid-template-columns: repeat(4, 1fr); }
+        #seo-plans .plans-grid { grid-template-columns: repeat(2, 1fr); }
+
+        .plan-card {
+            border: var(--bw) solid var(--black);
+            background: var(--paper);
+            padding: 1.8rem 1.5rem 1.5rem;
+            display: flex; flex-direction: column;
+            box-shadow: 8px 8px 0 var(--black);
+            transition: .16s;
+            position: relative;
+        }
+        .plan-card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 var(--black); }
+        .plan-card--green { border-top: 13px solid var(--green); }
+        .plan-card--blue { border-top: 13px solid var(--blue); }
+        .plan-card--purple { border-top: 13px solid var(--purple); }
+        .plan-card--red { border-top: 13px solid var(--red); }
+        .plan-card--highlighted { background: #fff9e2; transform: translateY(-8px); }
+        .plan-card--highlighted:hover { transform: translate(-4px, -12px); }
+        .plan-head-row { display: flex; align-items: center; gap: .75rem; margin-bottom: .85rem; }
+        .plan-num {
+            width: 48px; height: 48px; min-width: 48px;
+            border: 4px solid var(--black);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1rem;
+            box-shadow: 4px 4px 0 var(--black); background: #fff; flex-shrink: 0;
+        }
+        .plan-num.g { background: var(--green); }
+        .plan-num.b { background: var(--blue); color: #fff; }
+        .plan-num.p { background: var(--purple); color: #fff; }
+        .plan-num.r { background: var(--red); color: #fff; }
+        .plan-name { font-size: 1.05rem; font-weight: 900; line-height: 1.4; letter-spacing: -.3px; }
+        .plan-meta { display: flex; flex-wrap: wrap; gap: .6rem; margin: .85rem 0 1rem; }
+        .plan-price-box {
+            display: inline-flex; align-items: center; gap: .4rem;
+            background: var(--yellow); border: 4px solid var(--black);
+            padding: .38rem .75rem; font-weight: 900; font-size: .98rem;
+            transform: rotate(-.5deg); box-shadow: 3px 3px 0 var(--black);
+        }
+        .plan-time-box {
+            display: inline-flex; align-items: center; gap: .35rem;
+            background: #fff; border: 3px solid var(--black);
+            padding: .32rem .7rem; font-weight: 900; font-size: .82rem;
+        }
+        .plan-suitable {
+            font-weight: 800; border: 3px dashed var(--black);
+            background: #fff; text-align: center;
+            padding: .65rem .7rem; margin-bottom: 1.4rem;
+            font-size: .85rem; line-height: 1.6;
+        }
+        .plan-features { list-style: none; flex-grow: 1; margin-bottom: 1.2rem; }
+        .plan-features li {
+            margin-bottom: .6rem; font-weight: 800; font-size: .82rem;
+            line-height: 1.5; padding-right: 1.3rem; position: relative; word-break: break-word;
+        }
+        .plan-features li strong {
+            background: var(--black); color: #fff;
+            padding: .08rem .5rem; font-size: .88rem;
+            display: inline-block; margin-bottom: .3rem;
+        }
+        .plan-features li::before {
+            content: ""; position: absolute; right: 0; top: .45rem;
+            width: 8px; height: 8px; background: var(--red);
+            border: 2px solid var(--black); transform: rotate(45deg);
+        }
+        .plan-revisions {
+            border-top: 4px solid var(--black);
+            background: #f3efe4;
+            margin: 0 -1.5rem -1.5rem -1.5rem;
+            padding: 1rem 1.5rem;
+            font-weight: 900; font-size: .85rem; line-height: 1.65;
+        }
+
+        /* ── Terms ── */
+        .terms-grid {
+            display: grid; gap: 1.7rem;
+            max-width: 1320px; margin: 0 auto;
+        }
+        #design-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
+        #seo-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
+        .term-item {
+            border: var(--bw) solid var(--black);
+            background: #fff; padding: 1.6rem 1.35rem;
+            box-shadow: 6px 6px 0 var(--black); transition: .15s;
+        }
+        .term-item:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--blue); }
+        .term-item h4 {
+            font-weight: 900; font-size: 1.18rem; margin-bottom: 1rem;
+            display: inline-block; background: var(--pink); color: #fff;
+            padding: .25rem .7rem; border: 3px solid var(--black);
+            transform: rotate(-1.5deg);
+        }
+        .term-item ul { list-style: none; }
+        .term-item ul li {
+            margin-bottom: .6rem; font-weight: 800; font-size: .92rem;
+            padding-right: 1.25rem; position: relative;
+        }
+        .term-item ul li::before {
+            content: ""; position: absolute; right: 0; top: .6rem;
+            width: 8px; height: 8px; background: var(--purple);
+            border: 2px solid var(--black); transform: rotate(45deg);
+        }
+
+        /* ── Footer: 3D Space Brutal ── */
+        .site-footer {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 18% 22%, rgba(162, 89, 255, .32), transparent 24%),
+                radial-gradient(circle at 82% 28%, rgba(41, 121, 255, .28), transparent 26%),
+                radial-gradient(circle at 50% 120%, rgba(255, 45, 122, .22), transparent 34%),
+                var(--black);
+            color: var(--white);
+            border-top: var(--bw) solid var(--black);
+        }
+        .site-footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(#ffffff 1px, transparent 1.5px),
+                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.035) 20px, rgba(255,255,255,.035) 22px);
+            background-size: 44px 44px, auto;
+            opacity: .42;
+            pointer-events: none;
+        }
+        .footer-space-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 5rem 2.2rem 2rem;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .footer-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+        .footer-brand-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .35rem;
+            background: var(--yellow);
+            color: var(--black);
+            border: var(--bw) solid var(--black);
+            box-shadow: 10px 10px 0 var(--pink);
+            padding: .3rem 1.35rem;
+            font-size: clamp(2.5rem, 5vw, 4.7rem);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -2px;
+            transform: rotate(-1.5deg);
+        }
+        .footer-copy p {
+            max-width: 560px;
+            color: #f7f1d8;
+            font-size: 1.08rem;
+            font-weight: 800;
+            line-height: 1.9;
+        }
+        .footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .85rem;
+        }
+        .footer-actions a,
+        .footer-actions span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: .5rem 1rem;
+            border: 3px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 900;
+            background: rgba(255,255,255,.06);
+        }
+        .footer-actions a:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+        .space-stage {
+            position: relative;
+            min-height: 330px;
+            perspective: 900px;
+        }
+        .planet-3d {
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(14deg) rotateZ(-10deg);
+            border: var(--bw) solid #fff;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 30% 26%, #fff6a6 0 9%, transparent 10%),
+                radial-gradient(circle at 32% 30%, var(--yellow), var(--orange) 45%, var(--pink) 74%);
+            box-shadow: 16px 16px 0 rgba(0,0,0,.55), inset -18px -18px 0 rgba(0,0,0,.18);
+        }
+        .planet-3d::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 82px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-17deg);
+            border: 8px solid var(--blue-light);
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--black);
+        }
+        .planet-3d::after {
+            content: "WV";
+            position: absolute;
+            right: 34px;
+            bottom: 44px;
+            color: var(--black);
+            font-weight: 900;
+            font-size: 1.6rem;
+            letter-spacing: -1px;
+        }
+        .orbital-card {
+            position: absolute;
+            border: 4px solid #fff;
+            background: var(--black);
+            color: #fff;
+            font-weight: 900;
+            padding: .55rem .85rem;
+            box-shadow: 7px 7px 0 rgba(255,255,255,.2);
+            transform-style: preserve-3d;
+        }
+        .orbital-card.one { top: 28px; right: 12%; background: var(--blue); transform: rotate(6deg) translateZ(30px); }
+        .orbital-card.two { bottom: 38px; left: 8%; background: var(--purple); transform: rotate(-7deg) translateZ(40px); }
+        .orbital-card.three { top: 46%; right: 0; background: var(--green); color: var(--black); transform: rotate(-3deg) translateZ(20px); }
+        .space-cube {
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            left: 14%;
+            top: 52px;
+            transform: rotateX(58deg) rotateZ(45deg);
+            background: var(--teal);
+            border: 4px solid #fff;
+            box-shadow: 12px 12px 0 rgba(255,255,255,.18);
+        }
+        .footer-bottom {
+            position: relative;
+            z-index: 2;
+            border-top: 3px solid rgba(255,255,255,.18);
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 1.3rem 2.2rem 1.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            color: #e7e0c9;
+            font-weight: 800;
+        }
+        .back-top {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            color: var(--black);
+            background: var(--yellow);
+            border: 3px solid #fff;
+            padding: .45rem .95rem;
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1200px) {
+            .plans-grid { grid-template-columns: repeat(2, 1fr); }
+            #seo-plans .plans-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 1040px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 2rem; padding-top: 5rem; }
+            .hero-visual { order: -1; min-height: 390px; }
+            .hv-browser { right: 0; left: 0; transform: rotate(-1.2deg); }
+            #design-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
+            #seo-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
+            .sep-brutal .sep-center .sep-label { font-size: 1rem; padding: .15rem .8rem; }
+            .footer-space-inner { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+            .footer-copy { align-items: center; }
+            .space-stage { min-height: 300px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-eyebrow { display: none; }
+            .hero-brand { font-size: clamp(2.7rem, 10vw, 3.5rem); padding: .16rem 1rem .18rem; box-shadow: 7px 7px 0 var(--black); }
+            .hero-brand .brand-dot { width: 20px; height: 20px; }
+            .hero-name { font-size: 1.3rem; }
+            .hero-desc { font-size: 1.05rem; }
+            .section { padding: 4rem 1.25rem; }
+            .hero-inner { padding: 4.5rem 1.25rem 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .sep-brutal { padding: 1.2rem 0; }
+            .sep-brutal .sep-center { padding: 0 .7rem; }
+            .sep-brutal .sep-bar { height: 4px; }
+            .sep-brutal .sep-bar::after { width: 18px; height: 18px; top: -7px; }
+            .sep-brutal .sep-bar.right::after { left: -9px; }
+            .sep-brutal .sep-bar.left::after { right: -9px; }
+            .sep-brutal .sep-center .sep-label { font-size: .85rem; padding: .12rem .6rem; }
+            .sep-brutal .sep-center .sep-diamond { width: 10px; height: 10px; }
+            .planet-3d { width: 155px; height: 155px; }
+            .planet-3d::before { width: 230px; height: 66px; border-width: 6px; }
+            .orbital-card { font-size: .82rem; padding: .45rem .65rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 680px) {
+            .plans-grid { grid-template-columns: 1fr; }
+            #seo-plans .plans-grid { grid-template-columns: 1fr; }
+            #design-terms .terms-grid { grid-template-columns: 1fr; }
+            #seo-terms .terms-grid { grid-template-columns: 1fr; }
+            .hero-brand { font-size: 2.5rem; }
+            .hero-brand .brand-wv,
+            .hero-brand .brand-wv-outline { letter-spacing: -1px; }
+            .hero-visual { min-height: 340px; }
+            .hv-note.yellow { top: auto; bottom: 72px; right: 0; }
+            .hv-note.pink { left: 0; top: 14px; }
+            .hero-stats div { width: 100%; text-align: center; }
+            .hero-ctas .btn { width: 100%; justify-content: center; }
+            .hero-badges { justify-content: center; }
+            .hero-badges span { flex: 1; min-width: 100px; text-align: center; }
+            .hero-copy { text-align: center; }
+            .hero-name-wrap { text-align: center; }
+            .hero-desc { margin-left: auto; margin-right: auto; text-align: center; }
+            .hero-ctas { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-stats div { width: auto; flex: 1; min-width: 80px; text-align: center; }
+            .section-title { font-size: 2rem; }
+            .plan-head-row { flex-direction: column; text-align: center; gap: .5rem; }
+            .plan-meta { justify-content: center; }
+            .plan-name { font-size: 1rem; }
+            .footer-space-inner { padding: 3.7rem 1.25rem 1.5rem; }
+            .footer-brand-box { font-size: 2.35rem; box-shadow: 7px 7px 0 var(--pink); }
+            .footer-copy p { font-size: .98rem; }
+            .space-stage { min-height: 260px; }
+            .orbital-card.three { right: 2%; }
+            .space-cube { width: 42px; height: 42px; left: 10%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="float-shape fs1"></div>
+    <div class="float-shape fs2"></div>
+    <div class="float-shape fs3"></div>
+
+    <div class="hero-inner">
+        <div class="hero-copy">
+            <div class="hero-eyebrow">
+                <span class="live-dot"></span>
+                آماده همکاری / پروژه جدید ۱۴۰۵
+                <span style="opacity: .55">/</span>
+                <span>تهران / ریموت</span>
+            </div>
+
+            <div class="hero-brand">
+                <span class="brand-wv">وب</span>
+                <span class="brand-wv-outline">ویژن</span>
+                <span class="brand-dot"></span>
+            </div>
+
+            <div class="hero-name-wrap">
+                <div class="hero-name">محمدرضا چنگیزی</div>
+            </div>
+
+            <p class="hero-desc">
+                توسعه‌دهنده وب، اپلیکیشن، افزونه و راهکارهای اختصاصی
+            </p>
+
+            <div class="hero-badges">
+                <span>طراحی سایت</span>
+                <span>توسعه افزونه</span>
+                <span>وب اپلیکیشن</span>
+                <span>سئو و رشد</span>
+            </div>
+
+            <div class="hero-ctas">
+                <a href="#design-plans" class="btn btn-primary">
+                    مشاهده پلن‌های طراحی
+                    <svg class="ico" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </a>
+                <a href="#seo-plans" class="btn btn-ghost">
+                    پلن‌های سئو
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div>۵۰+ پروژه موفق</div>
+                <div>۴ پلن شفاف قیمت</div>
+                <div>پشتیبانی واقعی</div>
+                <div>کدنویسی تمیز</div>
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+            <div class="hv-circle">WV<br>2026</div>
+            <div class="hv-browser">
+                <div class="hv-browser-top">
+                    <div class="hv-dots"><i></i><i></i><i></i></div>
+                    <span style="margin-right: .7rem">webvision.ir / امن</span>
+                </div>
+                <div class="hv-browser-body">
+                    <div class="hv-line"></div>
+                    <div class="hv-line short"></div>
+                    <div class="hv-line tiny"></div>
+                    <div class="hv-grid">
+                        <div class="hv-tile">UI/UX</div>
+                        <div class="hv-tile">SEO</div>
+                        <div class="hv-tile">PWA</div>
+                        <div class="hv-tile">API</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hv-note pink">High<br>Performance</div>
+            <div class="hv-note yellow">طراحی<br>اختصاصی<br>بدون قالب!</div>
+            <div class="hv-float-tag">Core Web Vitals</div>
+        </div>
+    </div>
+
+    <!-- ── SEPARATOR: Zigzag Brutal ── -->
+    <div class="sep-brutal">
+        <div class="sep-track">
+            <div class="sep-bar right"></div>
+            <div class="sep-center">
+                <span class="sep-diamond"></span>
+                <span class="sep-label">وب <span>ویژن</span></span>
+                <span class="sep-diamond"></span>
+            </div>
+            <div class="sep-bar left"></div>
+        </div>
+    </div>
+</section>
+
+<!-- DESIGN PLANS -->
+<section id="design-plans" class="section">
+    <h2 class="section-title">پلن‌های طراحی سایت</h2>
+    <div class="plans-grid">
+
+        <article class="plan-card plan-card--green">
+            <div class="plan-head-row">
+                <div class="plan-num g">۰۱</div>
+                <h3 class="plan-name">پلن 1 — پایه (Essential Web)</h3>
+            </div>
+            <div class="plan-meta">
+                <div class="plan-price-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                    9,000,000 تومان
+                </div>
+                <div class="plan-time-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
+                    6 تا 9 روز کاری
+                </div>
+            </div>
+            <div class="plan-suitable">مناسب برای شروع سریع و اقتصادی</div>
+            <ul class="plan-features">
+                <li><strong>خدمات</strong></li>
+                <li>طراحی سایت با قالب آماده</li>
+                <li>شخصی‌سازی کامل قالب بر اساس هویت و نیاز کسب‌وکار</li>
+                <li>طراحی صفحه اصلی + 4 صفحه داخلی</li>
+                <li>راه‌اندازی کامل CMS وردپرس</li>
+                <li>ورود و دسته‌بندی تا 10 محصول یا خدمت</li>
+                <li>رعایت اصول On-Page SEO (ساختار H1-H3، متا تگ‌ها و URL استاندارد)</li>
+                <li>ایجاد و پیکربندی Sitemap</li>
+                <li>ایجاد و پیکربندی Robots.txt</li>
+                <li>بهینه‌سازی سرعت و عملکرد پایه سایت</li>
+                <li>طراحی کامل ریسپانسیو (موبایل، تبلت و دسکتاپ)</li>
+                <li>راه‌اندازی ابزارهای ضروری سایت (امنیت، کش و سئو)</li>
+                <li>ثبت سایت در موتورهای جستجو و سرویس‌های AI</li>
+                <li>اتصال درگاه پرداخت</li>
+                <li>طراحی و آماده‌سازی تصاویر، بنرها و اسلایدرهای موردنیاز سایت در سطح پایه</li>
+                <li>هماهنگی طراحی بر اساس نمونه‌های انتخابی کارفرما</li>
+                <li>نصب و راه‌اندازی افزونه‌های پریمیوم بدون هزینه اضافی</li>
+            </ul>
+            <div class="plan-revisions"><strong>اصلاحات:</strong> 2 نوبت اصلاح</div>
+        </article>
+
+        <article class="plan-card plan-card--blue plan-card--highlighted">
+            <div class="plan-head-row">
+                <div class="plan-num b">۰۲</div>
+                <h3 class="plan-name">پلن 2 — استاندارد (Business Web)</h3>
+            </div>
+            <div class="plan-meta">
+                <div class="plan-price-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                    14,000,000 تومان
+                </div>
+                <div class="plan-time-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
+                    8 تا 12 روز کاری
+                </div>
+            </div>
+            <div class="plan-suitable">مناسب کسب‌وکارهای در حال رشد</div>
+            <ul class="plan-features">
+                <li><strong>خدمات</strong></li>
+                <li>شامل تمام امکانات پلن پایه</li>
+                <li>افزایش صفحات تا 8 صفحه داخلی</li>
+                <li>ورود و دسته‌بندی تا 20 محصول یا خدمت</li>
+                <li>اتصال Google Search Console</li>
+                <li>اتصال Google Analytics</li>
+                <li>بهینه‌سازی امنیت سایت</li>
+                <li>ارتقای ساختار UI/UX صفحات کلیدی</li>
+                <li>پیاده‌سازی پنل کاربری کاربران (در صورت نیاز پروژه)</li>
+                <li>بهینه‌سازی حرفه‌ای‌تر ساختار سئو داخلی</li>
+                <li>طراحی ساختار وبلاگ و بخش مقالات</li>
+                <li>اتصال درگاه پرداخت، ترب و ایمالز (در صورت نیاز)</li>
+                <li>بهینه‌سازی مسیر تبدیل کاربران (Conversion Optimization)</li>
+                <li>نصب و راه‌اندازی افزونه‌های پریمیوم بدون هزینه اضافی</li>
+            </ul>
+            <div class="plan-revisions"><strong>اصلاحات:</strong> 3 نوبت اصلاح</div>
+        </article>
+
+        <article class="plan-card plan-card--purple">
+            <div class="plan-head-row">
+                <div class="plan-num p">۰۳</div>
+                <h3 class="plan-name">پلن 3 — حرفه‌ای (Advanced UI + SEO Build)</h3>
+            </div>
+            <div class="plan-meta">
+                <div class="plan-price-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                    20,000,000 تومان
+                </div>
+                <div class="plan-time-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
+                    10 تا 16 روز کاری
+                </div>
+            </div>
+            <div class="plan-suitable">مناسب برندهایی که ظاهر حرفه‌ای و رشد سئو برایشان اهمیت دارد</div>
+            <ul class="plan-features">
+                <li><strong>خدمات</strong></li>
+                <li>شامل تمام امکانات پلن استاندارد</li>
+                <li>طراحی اختصاصی با Elementor بدون وابستگی به قالب آماده</li>
+                <li>طراحی UI اختصاصی صفحات اصلی و لندینگ‌ها</li>
+                <li>طراحی هدر اختصاصی</li>
+                <li>طراحی فوتر اختصاصی</li>
+                <li>ورود و دسته‌بندی تا 30 محصول یا خدمت</li>
+                <li>تحقیق و تحلیل کلمات کلیدی هدف</li>
+                <li>طراحی ساختار صفحات بر اساس جستجوی کاربران و اصول سئو</li>
+                <li>اتصال و پیکربندی پنل پیامکی (در صورت نیاز)</li>
+                <li>طراحی لندینگ‌پیج‌های فروش محور</li>
+                <li>پیاده‌سازی Schema Markup پایه</li>
+                <li>بهینه‌سازی Core Web Vitals و سرعت سایت</li>
+                <li>پیاده‌سازی تمیز و بهینه بدون کدنویسی اضافی و غیرضروری</li>
+            </ul>
+            <div class="plan-revisions"><strong>اصلاحات:</strong> 3 نوبت اصلاح</div>
+        </article>
+
+        <article class="plan-card plan-card--red">
+            <div class="plan-head-row">
+                <div class="plan-num r">۰۴</div>
+                <h3 class="plan-name">پلن 4 — اختصاصی (Startup / Custom System)</h3>
+            </div>
+            <div class="plan-meta">
+                <div class="plan-price-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                    20 تا 40 میلیون تومان
+                </div>
+                <div class="plan-time-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
+                    زمان متناسب با پروژه
+                </div>
+            </div>
+            <div class="plan-suitable">مناسب استارتاپ‌ها و پروژه‌های اختصاصی</div>
+            <ul class="plan-features">
+                <li><strong>خدمات</strong></li>
+                <li>طراحی UI/UX اختصاصی</li>
+                <li>ارائه Wireframe و ساختار اولیه پروژه قبل از اجرا</li>
+                <li>توسعه سیستم اختصاصی بدون وابستگی به وردپرس</li>
+                <li>طراحی و پیاده‌سازی CMS اختصاصی</li>
+                <li>طراحی دیتابیس اختصاصی</li>
+                <li>توسعه وب اپلیکیشن PWA</li>
+                <li>معماری اختصاصی سیستم متناسب با نیاز پروژه</li>
+                <li>اتصال APIهای اختصاصی</li>
+                <li>طراحی و توسعه API اختصاصی برای ارتباط با سرویس‌های دیگر</li>
+                <li>امکان اتصال چت‌بات هوش مصنوعی</li>
+                <li>طراحی پنل مدیریت اختصاصی</li>
+                <li>قابلیت توسعه و افزودن ماژول‌های جدید در آینده</li>
+                <li>مستندسازی بخش‌های اصلی پروژه</li>
+                <li>توسعه با کدنویسی بهینه، سبک و High Performance</li>
+            </ul>
+            <div class="plan-revisions"><strong>اصلاحات:</strong> توافقی بر اساس فازهای پروژه</div>
+        </article>
+    </div>
+</section>
+
+<!-- Design Terms -->
+<section id="design-terms" class="section">
+    <h2 class="section-title">شرایط عمومی همکاری</h2>
+    <div class="terms-grid">
+        <div class="term-item"><h4>هاست و دامنه</h4><ul><li>تهیه توسط کارفرما جهت مالکیت کامل پروژه</li><li>در صورت نیاز، امکان تهیه و مدیریت توسط توسعه‌دهنده وجود دارد</li></ul></div>
+        <div class="term-item"><h4>سئو</h4><ul><li>رعایت کامل اصول On-Page SEO در تمامی پلن‌ها</li><li>بهینه‌سازی ساختار صفحات و کلمات کلیدی متناسب با سطح هر پلن</li><li>خدمات سئو پیشرفته به‌صورت جداگانه ارائه می‌شود</li></ul></div>
+        <div class="term-item"><h4>طراحی و محتوا</h4><ul><li>طراحی اولیه تصاویر، بنرها و المان‌های بصری انجام می‌شود</li><li>در صورت عدم تأیید، امکان اصلاح بر اساس تصاویر یا پیشنهادات کارفرما وجود دارد</li><li>طراحی نهایی بر اساس سلیقه، نیاز و نمونه‌های معرفی‌شده توسط کارفرما انجام می‌شود</li></ul></div>
+        <div class="term-item"><h4>اصلاحات</h4><ul><li>اصلاحات شامل تغییرات طراحی، چیدمان و محتوای صفحات است</li><li>میزان اصلاحات بر اساس پلن انتخابی محدود می‌باشد</li></ul></div>
+        <div class="term-item"><h4>مالکیت پروژه</h4><ul><li>پس از تسویه حساب نهایی، مالکیت کامل سایت، اطلاعات، فایل‌ها و دسترسی‌های پروژه به کارفرما تعلق خواهد داشت</li></ul></div>
+        <div class="term-item"><h4>شرایط پرداخت</h4><ul><li>20٪ پیش‌پرداخت هنگام شروع پروژه</li><li>80٪ پس از تکمیل، تحویل نهایی و تأیید پروژه</li></ul></div>
+    </div>
+</section>
+
+<!-- SEO Plans -->
+<section id="seo-plans" class="section">
+    <h2 class="section-title">پلن‌های سئو و پشتیبانی</h2>
+    <div class="plans-grid">
+        <article class="plan-card plan-card--green">
+            <div class="plan-head-row">
+                <div class="plan-num g">S1</div>
+                <h3 class="plan-name">پلن 1 — سئو و پشتیبانی (Growth Care)</h3>
+            </div>
+            <div class="plan-meta">
+                <div class="plan-price-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                    12,000,000 تومان / ماه
+                </div>
+                <div class="plan-time-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    حداقل همکاری: 3 ماه
+                </div>
+            </div>
+            <div class="plan-suitable">مناسب برای کسب‌وکارهایی که می‌خواهند به‌صورت مستمر رشد ارگانیک داشته باشند و سایت خود را همیشه به‌روز و بدون مشکل نگه دارند</div>
+            <ul class="plan-features">
+                <li><strong>خدمات</strong></li>
+                <li>بررسی و تحلیل کوئری‌های ورودی کاربران از طریق Google Search Console</li>
+                <li>اصلاح و بهینه‌سازی ساختار صفحات برای سئو فرندلی‌تر شدن</li>
+                <li>بهینه‌سازی تگ‌های عنوان، توضیحات متا و ساختار هدینگ‌ها</li>
+                <li>مانیتورینگ مداوم Google Search Console</li>
+                <li>مانیتورینگ Google Analytics و بررسی رفتار کاربران</li>
+                <li>تولید، نگارش و انتشار 14 محتوای بلاگ سئو محور در ماه</li>
+                <li>تحقیق کلمات کلیدی مرتبط با حوزه فعالیت کسب‌وکار</li>
+                <li>لینک‌سازی داخلی میان صفحات و مقالات سایت</li>
+                <li>بهینه‌سازی ساختار URL ها در صورت نیاز</li>
+                <li>بررسی و بهبود Core Web Vitals</li>
+                <li>رفع مشکلات فنی و ساختاری مؤثر بر سئو</li>
+                <li>رفع باگ‌ها و مشکلات احتمالی سایت</li>
+                <li>تهیه نسخه پشتیبان (Backup) دوره‌ای</li>
+                <li>بررسی وضعیت ایندکس صفحات</li>
+                <li>حفظ پایداری و سلامت کلی سایت</li>
+                <li>ارائه گزارش کامل عملکرد و فعالیت‌های انجام‌شده در پایان هر ماه</li>
+            </ul>
+            <div class="plan-revisions"><strong>اصلاحات و پشتیبانی:</strong> رفع کامل خطاها و مشکلات فنی سایت / رسیدگی به مشکلات غیرقابل پیش‌بینی مرتبط با عملکرد سایت / پشتیبانی مستمر در طول مدت قرارداد</div>
+        </article>
+
+        <article class="plan-card plan-card--red plan-card--highlighted">
+            <div class="plan-head-row">
+                <div class="plan-num r">S2</div>
+                <h3 class="plan-name">پلن 2 — سئو و رشد حرفه‌ای (Advanced SEO Growth)</h3>
+            </div>
+            <div class="plan-meta">
+                <div class="plan-price-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+                    20,000,000 تومان / ماه
+                </div>
+                <div class="plan-time-box">
+                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    حداقل همکاری: 3 ماه
+                </div>
+            </div>
+            <div class="plan-suitable">مناسب کسب‌وکارهایی که علاوه بر تولید محتوا، به دنبال رشد سریع‌تر در نتایج گوگل و توسعه اعتبار دامنه هستند</div>
+            <ul class="plan-features">
+                <li><strong>خدمات</strong></li>
+                <li>شامل تمام امکانات پلن Growth Care</li>
+                <li>تولید، نگارش و انتشار 20 محتوای بلاگ سئو محور در ماه</li>
+                <li>تحلیل تخصصی رقبا و فرصت‌های رشد</li>
+                <li>بررسی و تحلیل پیشرفته سئو با ابزارهای تخصصی مانند Semrush و میزفا تولز</li>
+                <li>تحلیل کلمات کلیدی رقبا و شناسایی فرصت‌های جدید</li>
+                <li>تدوین استراتژی محتوایی هدفمند</li>
+                <li>اجرای کمپین‌های رپورتاژ آگهی</li>
+                <li>تدوین و آماده‌سازی محتوای رپورتاژ آگهی</li>
+                <li>برنامه‌ریزی و اجرای لینک‌سازی خارجی</li>
+                <li>تحلیل و مدیریت پروفایل بک‌لینک سایت</li>
+                <li>بهبود ساختار Topic Cluster و لینک‌سازی داخلی پیشرفته</li>
+                <li>پایش مداوم رشد رتبه کلمات کلیدی</li>
+                <li>بررسی فرصت‌های Featured Snippet و نتایج AI Search</li>
+            </ul>
+            <div class="plan-revisions"><strong>گزارش‌دهی:</strong> ارائه گزارش کامل ماهانه / گزارش رشد ورودی‌های ارگانیک / گزارش وضعیت رتبه کلمات کلیدی / گزارش فعالیت‌های انجام‌شده روی سایت / گزارش لینک‌سازی و رپورتاژهای اجراشده</div>
+        </article>
+    </div>
+</section>
+
+<!-- SEO Terms -->
+<section id="seo-terms" class="section">
+    <h2 class="section-title">شرایط همکاری سئو</h2>
+    <div class="terms-grid">
+        <div class="term-item"><h4>مدت قرارداد</h4><ul><li>حداقل مدت همکاری 3 ماه می‌باشد</li><li>نتایج سئو معمولاً به‌صورت تدریجی و در بازه زمانی چندماهه قابل مشاهده خواهند بود</li></ul></div>
+        <div class="term-item"><h4>تولید محتوا</h4><ul><li>تمامی مقالات شامل تحقیق کلمات کلیدی، نگارش، بارگذاری، لینک‌سازی داخلی و بهینه‌سازی سئو می‌باشند</li></ul></div>
+        <div class="term-item"><h4>رپورتاژ و بک‌لینک</h4><ul><li>هزینه انتشار رپورتاژ آگهی و خرید بک‌لینک بر عهده کارفرما می‌باشد</li><li>انتخاب رسانه‌ها و اجرای فرآیند انتشار توسط مجری انجام خواهد شد</li></ul></div>
+        <div class="term-item"><h4>گزارش‌دهی</h4><ul><li>در پایان هر ماه گزارش کامل فعالیت‌ها و نتایج ارائه خواهد شد</li></ul></div>
+        <div class="term-item"><h4>شرایط پرداخت</h4><ul><li>پرداخت به‌صورت ماهانه انجام می‌شود</li><li>شروع هر ماه کاری منوط به تسویه ماه جاری می‌باشد</li></ul></div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-space-inner">
+        <div class="footer-copy">
+            <div class="footer-brand-box">وب ویژن</div>
+            <p>پایان این صفحه، شروع یک همکاری جدی است. اگر به یک سایت سریع، تمیز، سئو محور و قابل توسعه نیاز دارید، وب ویژن برای ساختن نسخه دقیق‌تر کسب‌وکار شما آماده است.</p>
+            <div class="footer-actions">
+                <a href="#design-plans">بازبینی پلن‌های طراحی</a>
+                <a href="#seo-plans">بازبینی پلن‌های سئو</a>
+                <span>محمدرضا چنگیزی</span>
+            </div>
+        </div>
+        <div class="space-stage" aria-hidden="true">
+            <div class="space-cube"></div>
+            <div class="orbital-card one">Design System</div>
+            <div class="orbital-card two">SEO Growth</div>
+            <div class="orbital-card three">High Performance</div>
+            <div class="planet-3d"></div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© ۱۴۰۵ وب ویژن — محمدرضا چنگیزی / طراحی و توسعه وب، سئو و پشتیبانی</p>
+        <a class="back-top" href="#hero">
+            برگشت به شروع
+            <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>
