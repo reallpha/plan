@@ -13,6 +13,7 @@
             --black: #0b0b0b;
             --white: #faf8f2;
             --paper: #fffdf7;
+            --gray: #e7e3d8;
             --red: #ff3b3b;
             --blue: #2979ff;
             --blue-light: #4facfe;
@@ -23,6 +24,7 @@
             --orange: #ff6a00;
             --teal: #00c2b4;
             --bw: 5px;
+            --container: 1360px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,104 +77,91 @@
         }
         .hero-inner {
             position: relative; z-index: 2;
-            max-width: 1280px; margin: 0 auto;
+            max-width: var(--container); margin: 0 auto;
             padding: 7rem 2.5rem 4rem;
             display: grid; grid-template-columns: 1.18fr .92fr; gap: 3.4rem; align-items: center;
         }
         .hero-copy { text-align: right; }
 
-        /* ── Separator (Zigzag Brutal) ── */
-        .sep-brutal {
+        /* ── Capability Strip ── */
+        .capability-strip {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.8rem 0;
             background: var(--black);
             border-top: var(--bw) solid var(--black);
             border-bottom: var(--bw) solid var(--black);
             overflow: hidden;
         }
-        .sep-brutal::before {
+        .capability-strip::before {
             content: "";
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(
-                -45deg,
-                transparent 0, transparent 14px,
-                rgba(255, 255, 255, 0.035) 14px, rgba(255, 255, 255, 0.035) 16px
-            );
+            inset: 0;
+            background:
+                radial-gradient(circle at 12% 25%, rgba(255, 45, 122, .34), transparent 18%),
+                radial-gradient(circle at 82% 72%, rgba(41, 121, 255, .3), transparent 20%),
+                repeating-linear-gradient(-45deg, transparent 0, transparent 13px, rgba(255,255,255,.045) 13px, rgba(255,255,255,.045) 15px);
             pointer-events: none;
         }
-        .sep-brutal .sep-track {
-            display: flex;
-            align-items: center;
-            gap: 0;
+        .capability-inner {
             position: relative;
             z-index: 2;
-            width: 100%;
-            max-width: 900px;
+            max-width: var(--container);
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 1.8rem 2.5rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.3rem;
+            align-items: center;
         }
-        .sep-brutal .sep-bar {
-            flex: 1;
-            height: 6px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--yellow) 0, var(--yellow) 10px,
-                transparent 10px, transparent 16px
-            );
+        .capability-title {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 68px;
+            padding: .45rem 1.25rem;
+            background: var(--yellow);
+            color: var(--black);
+            border: 4px solid #fff;
+            box-shadow: 8px 8px 0 var(--pink);
+            font-weight: 900;
+            font-size: 1.12rem;
+            line-height: 1.6;
+            transform: rotate(-2deg);
+            white-space: nowrap;
+        }
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: .85rem;
+        }
+        .cap-item {
             position: relative;
-        }
-        .sep-brutal .sep-bar::after {
-            content: "";
-            position: absolute;
-            top: -9px;
-            width: 24px;
-            height: 24px;
-            border: 4px solid var(--yellow);
-            transform: rotate(45deg);
-        }
-        .sep-brutal .sep-bar.right::after { left: -12px; background: var(--pink); }
-        .sep-brutal .sep-bar.left::after { right: -12px; background: var(--blue); }
-
-        .sep-brutal .sep-center {
+            min-height: 62px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: .8rem;
-            padding: .3rem 1.8rem;
-            flex-shrink: 0;
-            position: relative;
+            text-align: center;
+            padding: .55rem .75rem;
+            background: rgba(255,255,255,.08);
+            color: #fff;
+            border: 3px solid rgba(255,255,255,.9);
+            font-weight: 900;
+            font-size: .95rem;
+            line-height: 1.45;
         }
-        .sep-brutal .sep-center .sep-diamond {
-            width: 14px;
-            height: 14px;
+        .cap-item::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 17px;
+            height: 17px;
             background: var(--yellow);
             border: 3px solid var(--black);
             transform: rotate(45deg);
-            flex-shrink: 0;
         }
-        .sep-brutal .sep-center .sep-diamond:nth-child(1) { background: var(--pink); }
-        .sep-brutal .sep-center .sep-diamond:nth-child(3) { background: var(--green); }
-        .sep-brutal .sep-center .sep-label {
-            font-weight: 900;
-            font-size: 1.15rem;
-            letter-spacing: -.5px;
-            color: var(--black);
-            background: var(--yellow);
-            padding: .2rem 1rem;
-            border: 4px solid var(--black);
-            transform: rotate(-2deg);
-            box-shadow: 5px 5px 0 var(--pink);
-            white-space: nowrap;
-        }
-        .sep-brutal .sep-center .sep-label span {
-            background: var(--black);
-            color: var(--yellow);
-            padding: 0 .35rem;
-        }
+        .cap-item:nth-child(2n) { background: rgba(162,89,255,.28); }
+        .cap-item:nth-child(3n) { background: rgba(0,194,180,.26); }
+        .cap-item:nth-child(4n) { background: rgba(255,106,0,.26); }
 
         /* ── Hero Brand Typography ── */
         .hero-eyebrow {
@@ -362,7 +351,7 @@
         /* ── Plans ── */
         .plans-grid {
             display: grid; gap: 1.8rem;
-            max-width: 1380px; margin: 0 auto;
+            max-width: var(--container); margin: 0 auto;
         }
         .plans-grid { grid-template-columns: repeat(4, 1fr); }
         #seo-plans .plans-grid { grid-template-columns: repeat(2, 1fr); }
@@ -440,7 +429,7 @@
         /* ── Terms ── */
         .terms-grid {
             display: grid; gap: 1.7rem;
-            max-width: 1320px; margin: 0 auto;
+            max-width: var(--container); margin: 0 auto;
         }
         #design-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
         #seo-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
@@ -493,7 +482,7 @@
         .footer-space-inner {
             position: relative;
             z-index: 2;
-            max-width: 1220px;
+            max-width: var(--container);
             margin: 0 auto;
             padding: 5rem 2.2rem 2rem;
             display: grid;
@@ -623,7 +612,7 @@
             position: relative;
             z-index: 2;
             border-top: 3px solid rgba(255,255,255,.18);
-            max-width: 1220px;
+            max-width: var(--container);
             margin: 0 auto;
             padding: 1.3rem 2.2rem 1.7rem;
             display: flex;
@@ -657,7 +646,9 @@
             .hv-browser { right: 0; left: 0; transform: rotate(-1.2deg); }
             #design-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
             #seo-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
-            .sep-brutal .sep-center .sep-label { font-size: 1rem; padding: .15rem .8rem; }
+            .capability-inner { grid-template-columns: 1fr; text-align: center; }
+            .capability-title { justify-self: center; }
+            .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .footer-space-inner { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
             .footer-copy { align-items: center; }
             .space-stage { min-height: 300px; }
@@ -672,14 +663,9 @@
             .section { padding: 4rem 1.25rem; }
             .hero-inner { padding: 4.5rem 1.25rem 2.5rem; }
             .section-title { font-size: 2.2rem; }
-            .sep-brutal { padding: 1.2rem 0; }
-            .sep-brutal .sep-center { padding: 0 .7rem; }
-            .sep-brutal .sep-bar { height: 4px; }
-            .sep-brutal .sep-bar::after { width: 18px; height: 18px; top: -7px; }
-            .sep-brutal .sep-bar.right::after { left: -9px; }
-            .sep-brutal .sep-bar.left::after { right: -9px; }
-            .sep-brutal .sep-center .sep-label { font-size: .85rem; padding: .12rem .6rem; }
-            .sep-brutal .sep-center .sep-diamond { width: 10px; height: 10px; }
+            .capability-inner { padding: 1.4rem 1.25rem; }
+            .capability-title { min-height: 54px; font-size: 1rem; box-shadow: 6px 6px 0 var(--pink); }
+            .cap-item { min-height: 56px; font-size: .86rem; padding: .5rem .55rem; }
             .planet-3d { width: 155px; height: 155px; }
             .planet-3d::before { width: 230px; height: 66px; border-width: 6px; }
             .orbital-card { font-size: .82rem; padding: .45rem .65rem; }
@@ -717,6 +703,16 @@
             .space-stage { min-height: 260px; }
             .orbital-card.three { right: 2%; }
             .space-cube { width: 42px; height: 42px; left: 10%; }
+        }
+
+        @media (max-width: 460px) {
+            .capability-grid { grid-template-columns: 1fr; }
+            .capability-title { white-space: normal; width: 100%; }
+            .hero-brand { width: 100%; }
+            .hero-brand .brand-dot { display: none; }
+            .planet-3d::before { width: 205px; }
+            .orbital-card.one { right: 2%; }
+            .orbital-card.two { left: 2%; }
         }
     </style>
 </head>
@@ -802,16 +798,20 @@
         </div>
     </div>
 
-    <!-- ── SEPARATOR: Zigzag Brutal ── -->
-    <div class="sep-brutal">
-        <div class="sep-track">
-            <div class="sep-bar right"></div>
-            <div class="sep-center">
-                <span class="sep-diamond"></span>
-                <span class="sep-label">وب <span>ویژن</span></span>
-                <span class="sep-diamond"></span>
+    <!-- ── Capability Strip ── -->
+    <div class="capability-strip">
+        <div class="capability-inner">
+            <div class="capability-title">قابلیت‌های قابل اجرا</div>
+            <div class="capability-grid">
+                <div class="cap-item">توسعه وب‌سایت سفارشی</div>
+                <div class="cap-item">اپلیکیشن و PWA</div>
+                <div class="cap-item">ایجنت هوشمند</div>
+                <div class="cap-item">ربات تلگرامی</div>
+                <div class="cap-item">اتوماسیون فرایندها</div>
+                <div class="cap-item">اتصال API و وب‌هوک</div>
+                <div class="cap-item">پنل مدیریت اختصاصی</div>
+                <div class="cap-item">داشبورد داده و گزارش</div>
             </div>
-            <div class="sep-bar left"></div>
         </div>
     </div>
 </section>
