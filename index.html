@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وب ویژن | محمدرضا چنگیزی – طراحی سایت و سئو</title>
+    <title>وب ویژن | محمدرضا چنگیزی – طراحی سایت وردپرس و سئو</title>
+    <meta name="description" content="وب ویژن با اجرای محمدرضا چنگیزی؛ طراحی سایت وردپرس، توسعه وب اپلیکیشن، افزونه اختصاصی و خدمات سئو برای کسب‌وکارهای در حال رشد.">
+    <meta name="keywords" content="طراحی سایت, محمدرضا چنگیزی, وردپرس, طراحی سایت وردپرس, سئو, وب ویژن">
+    <meta name="author" content="محمدرضا چنگیزی">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffcc00">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:title" content="وب ویژن | محمدرضا چنگیزی – طراحی سایت وردپرس و سئو">
+    <meta property="og:description" content="پلن‌های شفاف طراحی سایت، وردپرس، توسعه اختصاصی و سئو توسط محمدرضا چنگیزی.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b0b0b'/%3E%3Cpath d='M32 8 58 56H6Z' fill='%23ffcc00' stroke='%23ff2d7a' stroke-width='5'/%3E%3Cpath d='M32 18 48 50H16Z' fill='%232979ff'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "وب ویژن",
+      "founder": {
+        "@type": "Person",
+        "name": "محمدرضا چنگیزی"
+      },
+      "description": "طراحی سایت وردپرس، توسعه وب اپلیکیشن، افزونه اختصاصی و خدمات سئو برای کسب‌وکارها.",
+      "areaServed": "IR",
+      "serviceType": ["طراحی سایت", "طراحی سایت وردپرس", "توسعه وب", "سئو", "توسعه افزونه وردپرس"]
+    }
+    </script>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css');
 
@@ -329,7 +353,6 @@
         }
         .float-shape { position: absolute; z-index: 1; pointer-events: none; }
         .fs1 { top: 40px; right: 7%; width: 42px; height: 42px; background: var(--red); transform: rotate(22deg); border: 4px solid var(--black); }
-        .fs2 { bottom: 130px; right: 48%; width: 0; height: 0; border-left: 26px solid transparent; border-right: 26px solid transparent; border-bottom: 44px solid var(--teal); filter: drop-shadow(3px 3px 0 #000); }
         .fs3 { top: 190px; left: 4%; width: 26px; height: 84px; background: var(--blue); border: 4px solid var(--black); transform: rotate(-14deg); }
 
         /* ── Sections ── */
@@ -634,6 +657,41 @@
             font-weight: 900;
         }
 
+        /* ── Motion Enhancements ── */
+        @keyframes heroPop {
+            from { opacity: 0; transform: translateY(28px) rotate(-3deg) scale(.96); }
+            to { opacity: 1; transform: translateY(0) rotate(-1deg) scale(1); }
+        }
+        @keyframes heroNamePop {
+            from { opacity: 0; transform: translateY(24px) rotate(4deg) scale(.96); }
+            to { opacity: 1; transform: translateY(0) rotate(1.5deg) scale(1); }
+        }
+        @keyframes softFloat {
+            0%, 100% { translate: 0 0; }
+            50% { translate: 0 -10px; }
+        }
+        .hero-brand { animation: heroPop .75s cubic-bezier(.2, .9, .2, 1) both; }
+        .hero-name { animation: heroNamePop .75s cubic-bezier(.2, .9, .2, 1) .12s both; }
+        .hv-browser, .planet-3d { animation: softFloat 5.5s ease-in-out infinite; }
+        .motion-reveal {
+            opacity: 0;
+            transform: translateY(34px) scale(.98);
+            transition: opacity .65s ease, transform .65s cubic-bezier(.2, .9, .2, 1);
+        }
+        .motion-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+            .motion-reveal { opacity: 1; transform: none; }
+        }
+
         /* ── Responsive ── */
         @media (max-width: 1200px) {
             .plans-grid { grid-template-columns: repeat(2, 1fr); }
@@ -721,7 +779,6 @@
 <!-- HERO -->
 <section id="hero">
     <div class="float-shape fs1"></div>
-    <div class="float-shape fs2"></div>
     <div class="float-shape fs3"></div>
 
     <div class="hero-inner">
@@ -733,11 +790,11 @@
                 <span>تهران / ریموت</span>
             </div>
 
-            <div class="hero-brand">
+            <h1 class="hero-brand">
                 <span class="brand-wv">وب</span>
                 <span class="brand-wv-outline">ویژن</span>
                 <span class="brand-dot"></span>
-            </div>
+            </h1>
 
             <div class="hero-name-wrap">
                 <div class="hero-name">محمدرضا چنگیزی</div>
@@ -1100,5 +1157,28 @@
     </div>
 </footer>
 
+<script>
+(function () {
+    var targets = document.querySelectorAll('.section, .plan-card, .term-item, .cap-item, .footer-space-inner');
+    if (!('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(function (el, index) {
+        el.classList.add('motion-reveal');
+        el.style.transitionDelay = Math.min((index % 6) * 70, 350) + 'ms';
+        observer.observe(el);
+    });
+})();
+</script>
 </body>
 </html>
