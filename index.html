@@ -3,1182 +3,617 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وب ویژن | محمدرضا چنگیزی – طراحی سایت وردپرس و سئو</title>
-    <meta name="description" content="وب ویژن با اجرای محمدرضا چنگیزی؛ طراحی سایت وردپرس، توسعه وب اپلیکیشن، افزونه اختصاصی و خدمات سئو برای کسب‌وکارهای در حال رشد.">
-    <meta name="keywords" content="طراحی سایت, محمدرضا چنگیزی, وردپرس, طراحی سایت وردپرس, سئو, وب ویژن">
-    <meta name="author" content="محمدرضا چنگیزی">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#ffcc00">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fa_IR">
-    <meta property="og:title" content="وب ویژن | محمدرضا چنگیزی – طراحی سایت وردپرس و سئو">
-    <meta property="og:description" content="پلن‌های شفاف طراحی سایت، وردپرس، توسعه اختصاصی و سئو توسط محمدرضا چنگیزی.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b0b0b'/%3E%3Cpath d='M32 8 58 56H6Z' fill='%23ffcc00' stroke='%23ff2d7a' stroke-width='5'/%3E%3Cpath d='M32 18 48 50H16Z' fill='%232979ff'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "وب ویژن",
-      "founder": {
-        "@type": "Person",
-        "name": "محمدرضا چنگیزی"
-      },
-      "description": "طراحی سایت وردپرس، توسعه وب اپلیکیشن، افزونه اختصاصی و خدمات سئو برای کسب‌وکارها.",
-      "areaServed": "IR",
-      "serviceType": ["طراحی سایت", "طراحی سایت وردپرس", "توسعه وب", "سئو", "توسعه افزونه وردپرس"]
-    }
-    </script>
+    <title>راهنما طراحی تصاویر محصول - ادمین پلاس</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
-        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css');
-
         :root {
-            --black: #0b0b0b;
-            --white: #faf8f2;
-            --paper: #fffdf7;
-            --gray: #e7e3d8;
-            --red: #ff3b3b;
-            --blue: #2979ff;
-            --blue-light: #4facfe;
-            --yellow: #ffcc00;
-            --green: #14c06e;
-            --purple: #a259ff;
-            --pink: #ff2d7a;
-            --orange: #ff6a00;
-            --teal: #00c2b4;
-            --bw: 5px;
-            --container: 1360px;
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --wp-blue: #2271b1;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        /* ── Custom Scrollbar ── */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track {
-            background: var(--paper);
-            border-left: 3px solid var(--black);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--yellow);
-            border: 3px solid var(--black);
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-thumb:hover { background: var(--pink); }
-        /* Firefox */
-        * { scrollbar-width: thin; scrollbar-color: var(--yellow) var(--paper); }
 
         body {
-            font-family: 'Sahel', 'Sahel-FD', Tahoma, sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.7;
-            direction: rtl;
-            overflow-x: hidden;
-        }
-
-        .ico { width: 20px; height: 20px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
-        .ico-sm { width: 18px; height: 18px; }
-
-        /* ── Hero ── */
-        #hero {
-            position: relative;
-            background: var(--paper);
-            border-bottom: var(--bw) solid var(--black);
-            overflow: hidden;
-        }
-        #hero::before {
-            content: "";
-            position: absolute; inset: 0;
-            background-image:
-                radial-gradient(#d8d3c8 1.8px, transparent 1.9px),
-                linear-gradient(115deg, rgba(255, 204, 0, 0.08) 0%, transparent 40%),
-                repeating-linear-gradient(45deg, transparent, transparent 22px, rgba(0, 0, 0, .024) 22px, rgba(0, 0, 0, .024) 24px);
-            background-size: 20px 20px, 100% 100%, auto auto;
-            pointer-events: none;
-        }
-        .hero-inner {
-            position: relative; z-index: 2;
-            max-width: var(--container); margin: 0 auto;
-            padding: 7rem 2.5rem 4rem;
-            display: grid; grid-template-columns: 1.18fr .92fr; gap: 3.4rem; align-items: center;
-        }
-        .hero-copy { text-align: right; }
-
-        /* ── Capability Strip ── */
-        .capability-strip {
-            position: relative;
-            background: var(--black);
-            border-top: var(--bw) solid var(--black);
-            border-bottom: var(--bw) solid var(--black);
-            overflow: hidden;
-        }
-        .capability-strip::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 12% 25%, rgba(255, 45, 122, .34), transparent 18%),
-                radial-gradient(circle at 82% 72%, rgba(41, 121, 255, .3), transparent 20%),
-                repeating-linear-gradient(-45deg, transparent 0, transparent 13px, rgba(255,255,255,.045) 13px, rgba(255,255,255,.045) 15px);
-            pointer-events: none;
-        }
-        .capability-inner {
-            position: relative;
-            z-index: 2;
-            max-width: var(--container);
-            margin: 0 auto;
-            padding: 1.8rem 2.5rem;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1.3rem;
-            align-items: center;
-        }
-        .capability-title {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 68px;
-            padding: .45rem 1.25rem;
-            background: var(--yellow);
-            color: var(--black);
-            border: 4px solid #fff;
-            box-shadow: 8px 8px 0 var(--pink);
-            font-weight: 900;
-            font-size: 1.12rem;
-            line-height: 1.6;
-            transform: rotate(-2deg);
-            white-space: nowrap;
-        }
-        .capability-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: .85rem;
-        }
-        .cap-item {
-            position: relative;
-            min-height: 62px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: .55rem .75rem;
-            background: rgba(255,255,255,.08);
-            color: #fff;
-            border: 3px solid rgba(255,255,255,.9);
-            font-weight: 900;
-            font-size: .95rem;
-            line-height: 1.45;
-        }
-        .cap-item::before {
-            content: "";
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            width: 17px;
-            height: 17px;
-            background: var(--yellow);
-            border: 3px solid var(--black);
-            transform: rotate(45deg);
-        }
-        .cap-item:nth-child(2n) { background: rgba(162,89,255,.28); }
-        .cap-item:nth-child(3n) { background: rgba(0,194,180,.26); }
-        .cap-item:nth-child(4n) { background: rgba(255,106,0,.26); }
-
-        /* ── Hero Brand Typography ── */
-        .hero-eyebrow {
-            display: inline-flex; align-items: center; gap: .65rem;
-            border: 4px solid var(--black);
-            background: var(--white);
-            padding: .45rem 1.05rem;
-            font-weight: 900; font-size: .92rem;
-            box-shadow: 4px 4px 0 var(--black);
-            margin-bottom: 1.8rem;
-        }
-        .live-dot {
-            width: 11px; height: 11px; background: var(--green);
-            border: 2px solid var(--black); border-radius: 50%;
-            box-shadow: 0 0 0 3px rgba(20, 192, 110, .25);
-            animation: pulse 1.8s infinite;
-        }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
-
-        .hero-brand {
-            width: fit-content;
-            max-width: 100%;
-            margin: 0 auto .85rem;
-            padding: .22rem 1.55rem .24rem 1.75rem;
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: center;
-            gap: .38rem;
-            background: var(--yellow);
-            color: var(--black);
-            border: var(--bw) solid var(--black);
-            box-shadow: 10px 10px 0 var(--black);
-            transform: rotate(-1deg);
-            font-size: clamp(3.4rem, 8.5vw, 6.6rem);
-            font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            text-align: center;
-        }
-        .hero-brand .brand-wv,
-        .hero-brand .brand-wv-outline {
-            display: inline-block;
-            color: var(--black);
-            background: transparent;
-            -webkit-text-stroke: 0;
-            text-stroke: 0;
-            text-shadow: none;
-            transform: none;
-            padding: 0;
-            letter-spacing: -2px;
-        }
-        .hero-brand .brand-dot {
-            width: 24px; height: 24px;
-            background: var(--green);
-            border: 4px solid var(--black);
-            transform: rotate(45deg);
-            display: inline-block;
-            vertical-align: middle;
-            box-shadow: 4px 4px 0 var(--black);
-        }
-        .hero-name-wrap { margin: 1rem 0 1.5rem; }
-        .hero-name {
-            display: inline-block;
-            background: var(--blue); color: #fff;
-            font-size: 1.7rem; font-weight: 900;
-            padding: .55rem 1.8rem;
-            border: var(--bw) solid var(--black);
-            box-shadow: 8px 8px 0 var(--black);
-            transform: rotate(1.5deg);
-            letter-spacing: -.8px;
-        }
-        .hero-desc {
-            font-size: 1.25rem; font-weight: 800; max-width: 520px;
-            background: #fff;
-            border: var(--bw) solid var(--black);
-            padding: 1.05rem 1.4rem;
-            box-shadow: 7px 7px 0 var(--gray);
-            line-height: 1.85; margin-bottom: 1.7rem;
-        }
-        .hero-badges { display: flex; flex-wrap: wrap; gap: .85rem; margin-bottom: 1.8rem; }
-        .hero-badges span {
-            border: 4px solid var(--black); padding: .5rem 1.2rem;
-            font-weight: 900; font-size: .95rem;
-            box-shadow: 4px 4px 0 var(--black); transition: transform .15s;
-        }
-        .hero-badges span:nth-child(1) { background: var(--green); }
-        .hero-badges span:nth-child(2) { background: var(--purple); color: #fff; transform: rotate(1.2deg); }
-        .hero-badges span:nth-child(3) { background: var(--red); color: #fff; transform: rotate(-1.1deg); }
-        .hero-badges span:nth-child(4) { background: var(--blue-light); color: #fff; transform: rotate(1.4deg); }
-        .hero-badges span:hover { transform: translate(-2px, -2px) rotate(0); }
-        .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.2rem; }
-        .btn {
-            display: inline-flex; align-items: center; gap: .55rem;
-            font-weight: 900; font-size: 1.05rem;
-            padding: .85rem 1.6rem;
-            border: 4px solid var(--black);
-            text-decoration: none; color: var(--black);
-            transition: .13s; cursor: pointer; font-family: inherit;
-        }
-        .btn-primary { background: var(--yellow); box-shadow: 6px 6px 0 var(--black); }
-        .btn-primary:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--black); }
-        .btn-ghost { background: #fff; box-shadow: 5px 5px 0 var(--black); }
-        .btn-ghost:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--black); }
-        .hero-stats { display: flex; flex-wrap: wrap; gap: 1rem; font-weight: 900; font-size: .92rem; }
-        .hero-stats div {
-            background: #fff; border: 3px solid var(--black);
-            padding: .5rem 1rem; box-shadow: 4px 4px 0 var(--black);
-        }
-
-        /* Hero visual */
-        .hero-visual { position: relative; min-height: 470px; }
-        .hv-browser {
-            position: absolute; top: 22px; right: 10px; left: 30px;
-            background: #fff; border: var(--bw) solid var(--black);
-            box-shadow: 12px 12px 0 var(--black);
-            border-radius: 6px; overflow: hidden;
-            transform: rotate(-2.5deg);
-        }
-        .hv-browser-top {
-            background: var(--yellow); border-bottom: 4px solid var(--black);
-            padding: .6rem .9rem; display: flex; gap: .5rem; align-items: center;
-            font-weight: 900; font-size: .85rem;
-        }
-        .hv-dots { display: flex; gap: 8px; }
-        .hv-dots i { width: 13px; height: 13px; border: 2px solid var(--black); border-radius: 50%; display: block; }
-        .hv-dots i:nth-child(1) { background: var(--red); }
-        .hv-dots i:nth-child(2) { background: var(--yellow); }
-        .hv-dots i:nth-child(3) { background: var(--green); }
-        .hv-browser-body { padding: 1.5rem 1.2rem; }
-        .hv-line { height: 14px; background: #f1ede3; border: 2px solid var(--black); margin-bottom: .75rem; width: 100%; }
-        .hv-line.short { width: 66%; }
-        .hv-line.tiny { width: 40%; }
-        .hv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 1rem; }
-        .hv-tile {
-            border: 3px solid var(--black); height: 72px;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: .9rem;
-        }
-        .hv-tile:nth-child(1) { background: var(--blue-light); color: #fff; transform: rotate(1.5deg); }
-        .hv-tile:nth-child(2) { background: var(--pink); color: #fff; transform: rotate(-1.5deg); }
-        .hv-tile:nth-child(3) { background: var(--teal); color: #fff; }
-        .hv-tile:nth-child(4) { background: var(--orange); color: #fff; transform: rotate(1deg); }
-        .hv-note {
-            position: absolute; border: 4px solid var(--black);
-            box-shadow: 7px 7px 0 var(--black); padding: .8rem 1rem;
-            font-weight: 900; font-size: .9rem; max-width: 180px;
-        }
-        .hv-note.yellow { background: var(--yellow); top: 312px; right: -6px; transform: rotate(4deg); }
-        .hv-note.pink { background: var(--pink); color: #fff; top: 48px; left: -12px; transform: rotate(-7deg); }
-        .hv-float-tag {
-            position: absolute; bottom: 18px; left: 4px;
-            background: var(--green); color: #000;
-            border: 4px solid var(--black); padding: .55rem 1rem;
-            font-weight: 900; box-shadow: 6px 6px 0 var(--black);
-            transform: rotate(-3deg); font-size: .9rem;
-        }
-        .hv-circle {
-            position: absolute; width: 80px; height: 80px;
-            border: 5px solid var(--black); border-radius: 50%;
-            background: var(--purple); top: -14px; left: 52%;
-            box-shadow: 6px 6px 0 var(--black);
-            display: flex; align-items: center; justify-content: center;
-            color: #fff; font-weight: 900; font-size: .85rem; transform: rotate(12deg);
-        }
-        .float-shape { position: absolute; z-index: 1; pointer-events: none; }
-        .fs1 { top: 40px; right: 7%; width: 42px; height: 42px; background: var(--red); transform: rotate(22deg); border: 4px solid var(--black); }
-        .fs3 { top: 190px; left: 4%; width: 26px; height: 84px; background: var(--blue); border: 4px solid var(--black); transform: rotate(-14deg); }
-
-        /* ── Sections ── */
-        .section {
-            padding: 5rem 2.5rem;
-            border-bottom: var(--bw) solid var(--black);
-            scroll-margin-top: 30px;
-        }
-        .section-title {
-            font-size: 2.65rem; font-weight: 900; text-align: center;
-            margin-bottom: 3.5rem; letter-spacing: -1.4px;
-        }
-        .section-title::after {
-            content: ''; display: block; width: 118px; height: 8px;
-            background: var(--red); margin: .9rem auto 0;
-            border: 3px solid var(--black);
-        }
-
-        /* ── Plans ── */
-        .plans-grid {
-            display: grid; gap: 1.8rem;
-            max-width: var(--container); margin: 0 auto;
-        }
-        .plans-grid { grid-template-columns: repeat(4, 1fr); }
-        #seo-plans .plans-grid { grid-template-columns: repeat(2, 1fr); }
-
-        .plan-card {
-            border: var(--bw) solid var(--black);
-            background: var(--paper);
-            padding: 1.8rem 1.5rem 1.5rem;
-            display: flex; flex-direction: column;
-            box-shadow: 8px 8px 0 var(--black);
-            transition: .16s;
-            position: relative;
-        }
-        .plan-card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 var(--black); }
-        .plan-card--green { border-top: 13px solid var(--green); }
-        .plan-card--blue { border-top: 13px solid var(--blue); }
-        .plan-card--purple { border-top: 13px solid var(--purple); }
-        .plan-card--red { border-top: 13px solid var(--red); }
-        .plan-card--highlighted { background: #fff9e2; transform: translateY(-8px); }
-        .plan-card--highlighted:hover { transform: translate(-4px, -12px); }
-        .plan-head-row { display: flex; align-items: center; gap: .75rem; margin-bottom: .85rem; }
-        .plan-num {
-            width: 48px; height: 48px; min-width: 48px;
-            border: 4px solid var(--black);
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 1rem;
-            box-shadow: 4px 4px 0 var(--black); background: #fff; flex-shrink: 0;
-        }
-        .plan-num.g { background: var(--green); }
-        .plan-num.b { background: var(--blue); color: #fff; }
-        .plan-num.p { background: var(--purple); color: #fff; }
-        .plan-num.r { background: var(--red); color: #fff; }
-        .plan-name { font-size: 1.05rem; font-weight: 900; line-height: 1.4; letter-spacing: -.3px; }
-        .plan-meta { display: flex; flex-wrap: wrap; gap: .6rem; margin: .85rem 0 1rem; }
-        .plan-price-box {
-            display: inline-flex; align-items: center; gap: .4rem;
-            background: var(--yellow); border: 4px solid var(--black);
-            padding: .38rem .75rem; font-weight: 900; font-size: .98rem;
-            transform: rotate(-.5deg); box-shadow: 3px 3px 0 var(--black);
-        }
-        .plan-time-box {
-            display: inline-flex; align-items: center; gap: .35rem;
-            background: #fff; border: 3px solid var(--black);
-            padding: .32rem .7rem; font-weight: 900; font-size: .82rem;
-        }
-        .plan-suitable {
-            font-weight: 800; border: 3px dashed var(--black);
-            background: #fff; text-align: center;
-            padding: .65rem .7rem; margin-bottom: 1.4rem;
-            font-size: .85rem; line-height: 1.6;
-        }
-        .plan-features { list-style: none; flex-grow: 1; margin-bottom: 1.2rem; }
-        .plan-features li {
-            margin-bottom: .6rem; font-weight: 800; font-size: .82rem;
-            line-height: 1.5; padding-right: 1.3rem; position: relative; word-break: break-word;
-        }
-        .plan-features li strong {
-            background: var(--black); color: #fff;
-            padding: .08rem .5rem; font-size: .88rem;
-            display: inline-block; margin-bottom: .3rem;
-        }
-        .plan-features li::before {
-            content: ""; position: absolute; right: 0; top: .45rem;
-            width: 8px; height: 8px; background: var(--red);
-            border: 2px solid var(--black); transform: rotate(45deg);
-        }
-        .plan-revisions {
-            border-top: 4px solid var(--black);
-            background: #f3efe4;
-            margin: 0 -1.5rem -1.5rem -1.5rem;
-            padding: 1rem 1.5rem;
-            font-weight: 900; font-size: .85rem; line-height: 1.65;
-        }
-
-        /* ── Terms ── */
-        .terms-grid {
-            display: grid; gap: 1.7rem;
-            max-width: var(--container); margin: 0 auto;
-        }
-        #design-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
-        #seo-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
-        .term-item {
-            border: var(--bw) solid var(--black);
-            background: #fff; padding: 1.6rem 1.35rem;
-            box-shadow: 6px 6px 0 var(--black); transition: .15s;
-        }
-        .term-item:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--blue); }
-        .term-item h4 {
-            font-weight: 900; font-size: 1.18rem; margin-bottom: 1rem;
-            display: inline-block; background: var(--pink); color: #fff;
-            padding: .25rem .7rem; border: 3px solid var(--black);
-            transform: rotate(-1.5deg);
-        }
-        .term-item ul { list-style: none; }
-        .term-item ul li {
-            margin-bottom: .6rem; font-weight: 800; font-size: .92rem;
-            padding-right: 1.25rem; position: relative;
-        }
-        .term-item ul li::before {
-            content: ""; position: absolute; right: 0; top: .6rem;
-            width: 8px; height: 8px; background: var(--purple);
-            border: 2px solid var(--black); transform: rotate(45deg);
-        }
-
-        /* ── Footer: 3D Space Brutal ── */
-        .site-footer {
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 18% 22%, rgba(162, 89, 255, .32), transparent 24%),
-                radial-gradient(circle at 82% 28%, rgba(41, 121, 255, .28), transparent 26%),
-                radial-gradient(circle at 50% 120%, rgba(255, 45, 122, .22), transparent 34%),
-                var(--black);
-            color: var(--white);
-            border-top: var(--bw) solid var(--black);
-        }
-        .site-footer::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(#ffffff 1px, transparent 1.5px),
-                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.035) 20px, rgba(255,255,255,.035) 22px);
-            background-size: 44px 44px, auto;
-            opacity: .42;
-            pointer-events: none;
-        }
-        .footer-space-inner {
-            position: relative;
-            z-index: 2;
-            max-width: var(--container);
-            margin: 0 auto;
-            padding: 5rem 2.2rem 2rem;
-            display: grid;
-            grid-template-columns: 1.05fr .95fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .footer-copy {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1.25rem;
-        }
-        .footer-brand-box {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: .35rem;
-            background: var(--yellow);
-            color: var(--black);
-            border: var(--bw) solid var(--black);
-            box-shadow: 10px 10px 0 var(--pink);
-            padding: .3rem 1.35rem;
-            font-size: clamp(2.5rem, 5vw, 4.7rem);
-            line-height: 1.05;
-            font-weight: 900;
-            letter-spacing: -2px;
-            transform: rotate(-1.5deg);
-        }
-        .footer-copy p {
-            max-width: 560px;
-            color: #f7f1d8;
-            font-size: 1.08rem;
-            font-weight: 800;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
             line-height: 1.9;
+            color: #333;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            font-size: 15px;
         }
-        .footer-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .85rem;
-        }
-        .footer-actions a,
-        .footer-actions span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 42px;
-            padding: .5rem 1rem;
-            border: 3px solid #fff;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 900;
-            background: rgba(255,255,255,.06);
-        }
-        .footer-actions a:hover {
-            background: var(--yellow);
-            color: var(--black);
-        }
-        .space-stage {
-            position: relative;
-            min-height: 330px;
-            perspective: 900px;
-        }
-        .planet-3d {
-            position: absolute;
-            width: 190px;
-            height: 190px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateX(14deg) rotateZ(-10deg);
-            border: var(--bw) solid #fff;
-            border-radius: 50%;
-            background:
-                radial-gradient(circle at 30% 26%, #fff6a6 0 9%, transparent 10%),
-                radial-gradient(circle at 32% 30%, var(--yellow), var(--orange) 45%, var(--pink) 74%);
-            box-shadow: 16px 16px 0 rgba(0,0,0,.55), inset -18px -18px 0 rgba(0,0,0,.18);
-        }
-        .planet-3d::before {
-            content: "";
-            position: absolute;
-            width: 280px;
-            height: 82px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(-17deg);
-            border: 8px solid var(--blue-light);
-            border-left-color: transparent;
-            border-right-color: transparent;
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px var(--black);
-        }
-        .planet-3d::after {
-            content: "WV";
-            position: absolute;
-            right: 34px;
-            bottom: 44px;
-            color: var(--black);
-            font-weight: 900;
-            font-size: 1.6rem;
-            letter-spacing: -1px;
-        }
-        .orbital-card {
-            position: absolute;
-            border: 4px solid #fff;
-            background: var(--black);
-            color: #fff;
-            font-weight: 900;
-            padding: .55rem .85rem;
-            box-shadow: 7px 7px 0 rgba(255,255,255,.2);
-            transform-style: preserve-3d;
-        }
-        .orbital-card.one { top: 28px; right: 12%; background: var(--blue); transform: rotate(6deg) translateZ(30px); }
-        .orbital-card.two { bottom: 38px; left: 8%; background: var(--purple); transform: rotate(-7deg) translateZ(40px); }
-        .orbital-card.three { top: 46%; right: 0; background: var(--green); color: var(--black); transform: rotate(-3deg) translateZ(20px); }
-        .space-cube {
-            position: absolute;
-            width: 54px;
-            height: 54px;
-            left: 14%;
-            top: 52px;
-            transform: rotateX(58deg) rotateZ(45deg);
-            background: var(--teal);
-            border: 4px solid #fff;
-            box-shadow: 12px 12px 0 rgba(255,255,255,.18);
-        }
-        .footer-bottom {
-            position: relative;
-            z-index: 2;
-            border-top: 3px solid rgba(255,255,255,.18);
-            max-width: var(--container);
+
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 1.3rem 2.2rem 1.7rem;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: #fff;
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            margin-top: 35px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            color: #e7e0c9;
-            font-weight: 800;
+            gap: 10px;
         }
-        .back-top {
-            display: inline-flex;
-            align-items: center;
-            gap: .45rem;
-            color: var(--black);
-            background: var(--yellow);
-            border: 3px solid #fff;
-            padding: .45rem .95rem;
+
+        h2::before {
+            content: "📌";
+        }
+
+        h3 {
+            color: var(--primary-color);
+            border-right: 4px solid var(--accent-color);
+            padding-right: 10px;
+            margin-top: 25px;
+            font-size: 16px;
+        }
+
+        .info-box {
+            background-color: #f4f6f7;
+            border: 1px dashed #bdc3c7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .danger-box {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .success-box {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        ul {
+            padding-right: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .specs {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .spec-item {
+            background: #eef2f3;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        a {
+            color: #2980b9;
             text-decoration: none;
-            font-weight: 900;
+            font-weight: bold;
         }
 
-        /* ── Motion Enhancements ── */
-        @keyframes heroPop {
-            from { opacity: 0; transform: translateY(28px) rotate(-3deg) scale(.96); }
-            to { opacity: 1; transform: translateY(0) rotate(-1deg) scale(1); }
-        }
-        @keyframes heroNamePop {
-            from { opacity: 0; transform: translateY(24px) rotate(4deg) scale(.96); }
-            to { opacity: 1; transform: translateY(0) rotate(1.5deg) scale(1); }
-        }
-        @keyframes softFloat {
-            0%, 100% { translate: 0 0; }
-            50% { translate: 0 -10px; }
-        }
-        .hero-brand { animation: heroPop .75s cubic-bezier(.2, .9, .2, 1) both; }
-        .hero-name { animation: heroNamePop .75s cubic-bezier(.2, .9, .2, 1) .12s both; }
-        .hv-browser, .planet-3d { animation: softFloat 5.5s ease-in-out infinite; }
-        .motion-reveal {
-            opacity: 0;
-            transform: translateY(34px) scale(.98);
-            transition: opacity .65s ease, transform .65s cubic-bezier(.2, .9, .2, 1);
-        }
-        .motion-reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-            .motion-reveal { opacity: 1; transform: none; }
+        a:hover {
+            text-decoration: underline;
         }
 
-        /* ── Responsive ── */
-        @media (max-width: 1200px) {
-            .plans-grid { grid-template-columns: repeat(2, 1fr); }
-            #seo-plans .plans-grid { grid-template-columns: repeat(2, 1fr); }
+        .sample-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
         }
 
-        @media (max-width: 1040px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 2rem; padding-top: 5rem; }
-            .hero-visual { order: -1; min-height: 390px; }
-            .hv-browser { right: 0; left: 0; transform: rotate(-1.2deg); }
-            #design-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
-            #seo-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
-            .capability-inner { grid-template-columns: 1fr; text-align: center; }
-            .capability-title { justify-self: center; }
-            .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .footer-space-inner { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
-            .footer-copy { align-items: center; }
-            .space-stage { min-height: 300px; }
+        .sample-card {
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
-        @media (max-width: 768px) {
-            .hero-eyebrow { display: none; }
-            .hero-brand { font-size: clamp(2.7rem, 10vw, 3.5rem); padding: .16rem 1rem .18rem; box-shadow: 7px 7px 0 var(--black); }
-            .hero-brand .brand-dot { width: 20px; height: 20px; }
-            .hero-name { font-size: 1.3rem; }
-            .hero-desc { font-size: 1.05rem; }
-            .section { padding: 4rem 1.25rem; }
-            .hero-inner { padding: 4.5rem 1.25rem 2.5rem; }
-            .section-title { font-size: 2.2rem; }
-            .capability-inner { padding: 1.4rem 1.25rem; }
-            .capability-title { min-height: 54px; font-size: 1rem; box-shadow: 6px 6px 0 var(--pink); }
-            .cap-item { min-height: 56px; font-size: .86rem; padding: .5rem .55rem; }
-            .planet-3d { width: 155px; height: 155px; }
-            .planet-3d::before { width: 230px; height: 66px; border-width: 6px; }
-            .orbital-card { font-size: .82rem; padding: .45rem .65rem; }
-            .footer-bottom { flex-direction: column; text-align: center; }
+        .sample-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        @media (max-width: 680px) {
-            .plans-grid { grid-template-columns: 1fr; }
-            #seo-plans .plans-grid { grid-template-columns: 1fr; }
-            #design-terms .terms-grid { grid-template-columns: 1fr; }
-            #seo-terms .terms-grid { grid-template-columns: 1fr; }
-            .hero-brand { font-size: 2.5rem; }
-            .hero-brand .brand-wv,
-            .hero-brand .brand-wv-outline { letter-spacing: -1px; }
-            .hero-visual { min-height: 340px; }
-            .hv-note.yellow { top: auto; bottom: 72px; right: 0; }
-            .hv-note.pink { left: 0; top: 14px; }
-            .hero-stats div { width: 100%; text-align: center; }
-            .hero-ctas .btn { width: 100%; justify-content: center; }
-            .hero-badges { justify-content: center; }
-            .hero-badges span { flex: 1; min-width: 100px; text-align: center; }
-            .hero-copy { text-align: center; }
-            .hero-name-wrap { text-align: center; }
-            .hero-desc { margin-left: auto; margin-right: auto; text-align: center; }
-            .hero-ctas { justify-content: center; }
-            .hero-stats { justify-content: center; }
-            .hero-stats div { width: auto; flex: 1; min-width: 80px; text-align: center; }
-            .section-title { font-size: 2rem; }
-            .plan-head-row { flex-direction: column; text-align: center; gap: .5rem; }
-            .plan-meta { justify-content: center; }
-            .plan-name { font-size: 1rem; }
-            .footer-space-inner { padding: 3.7rem 1.25rem 1.5rem; }
-            .footer-brand-box { font-size: 2.35rem; box-shadow: 7px 7px 0 var(--pink); }
-            .footer-copy p { font-size: .98rem; }
-            .space-stage { min-height: 260px; }
-            .orbital-card.three { right: 2%; }
-            .space-cube { width: 42px; height: 42px; left: 10%; }
+        .sample-card img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        @media (max-width: 460px) {
-            .capability-grid { grid-template-columns: 1fr; }
-            .capability-title { white-space: normal; width: 100%; }
-            .hero-brand { width: 100%; }
-            .hero-brand .brand-dot { display: none; }
-            .planet-3d::before { width: 205px; }
-            .orbital-card.one { right: 2%; }
-            .orbital-card.two { left: 2%; }
+        .sample-card .caption {
+            padding: 12px;
+            background: #f8f9fa;
+            text-align: center;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 13px;
+        }
+
+        .icon-sample img {
+            height: 150px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 10px;
+        }
+
+        .cover-sample img {
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .infographic-sample img {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+
+        .comparison-table th {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px;
+            text-align: right;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .visual-example {
+            border: 2px dashed var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .visual-example h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .btn-sample {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn-sample:hover {
+            background: #1a252f;
+            text-decoration: none;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: var(--wp-blue);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: #135e96;
+            text-decoration: none;
+        }
+
+        .text-requirements {
+            background: #fff;
+            border: 3px solid #2c3e50;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .text-requirements h4 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .text-box {
+            background: #f8f9fa;
+            border: 2px solid #2c3e50;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+        }
+
+        .text-box strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #7f8c8d;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .product-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .product-info h3 {
+            color: white;
+            border-right: none;
+            padding-right: 0;
+            margin-top: 0;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section id="hero">
-    <div class="float-shape fs1"></div>
-    <div class="float-shape fs3"></div>
+<div class="container">
+    <header>
+        <h1>راهنما طراحی تصاویر محصول</h1>
+    </header>
 
-    <div class="hero-inner">
-        <div class="hero-copy">
-            <div class="hero-eyebrow">
-                <span class="live-dot"></span>
-                آماده همکاری / پروژه جدید ۱۴۰۵
-                <span style="opacity: .55">/</span>
-                <span>تهران / ریموت</span>
-            </div>
+    <p class="intro-text">فریلنسر گرامی، لطفاً پیش از شروع طراحی، این سند را با دقت مطالعه فرمایید. تمامی ابعاد، قوانین، <strong>متون دقیق</strong> و استانداردهای مارکت‌پلیس «راست‌چین» در این فایل لحاظ شده است. <strong>نمونه‌های تصویری استاندارد در انتهای هر بخش قرار داده شده‌اند و با کلیک روی هر تصویر می‌توانید نسخه کامل و بزرگ آن را مشاهده کنید.</strong> رعایت دقیق این موارد برای تأیید شدن محصول در سایت الزامی است.</p>
 
-            <h1 class="hero-brand">
-                <span class="brand-wv">وب</span>
-                <span class="brand-wv-outline">ویژن</span>
-                <span class="brand-dot"></span>
-            </h1>
+    <!-- اطلاعات محصول -->
+    <div class="product-info">
+        <h3>📦 معرفی محصول</h3>
+        <p><strong>نام محصول:</strong> ادمین‌ پلاس | شخصی‌سازی و مدیریت پیشخوان وردپرس</p>
+        <p style="margin-top: 15px;"><strong>افزونه مدیریت پیشخوان وردپرس</strong> یک راهکار جامع برای شخصی‌سازی، برندینگ و مدیریت پنل مدیریت وردپرس است که به شما اجازه می‌دهد بدون حتی یک خط کدنویسی، پیشخوان سایت را دقیقاً مطابق سلیقه و هویت برند خود طراحی کنید.</p>
+        <p>با این افزونه می‌توانید تمامی رنگ‌های پیشخوان، منوها، دکمه‌ها، متن‌ها، پس‌زمینه‌ها و سایر اجزای رابط کاربری را به‌صورت کامل تغییر دهید، از میان بیش از ۳۰ پریست حرفه‌ای رنگی انتخاب کنید یا رنگ‌بندی اختصاصی خود را با پیش‌نمایش زنده بسازید. همچنین با بیش از ۷۰ فونت فارسی و امکان بارگذاری فونت اختصاصی، ظاهر پنل مدیریت را کاملاً شخصی‌سازی کنید.</p>
+    </div>
 
-            <div class="hero-name-wrap">
-                <div class="hero-name">محمدرضا چنگیزی</div>
-            </div>
+    <!-- دانلود افزونه -->
+    <div class="success-box" style="text-align: center;">
+        <h3 style="margin-top: 0; color: #155724;">📥 دانلود افزونه برای مشاهده اسکرین‌شات‌ها</h3>
+        <p>برای طراحی اینفوگرافیک، لطفاً افزونه را دانلود و در وردپرس نصب کنید تا با محیط و امکانات آن آشنا شوید و از اسکرین‌شات‌های واقعی استفاده کنید:</p>
+        <a href="https://uploadkon.ir/uploads/e71202_26wordpress-dashboard-manager.zip" target="_blank" class="btn-download">📥 دانلود افزونه ادمین پلاس</a>
+    </div>
 
-            <p class="hero-desc">
-                توسعه‌دهنده وب، اپلیکیشن، افزونه و راهکارهای اختصاصی
-            </p>
+    <!-- قوانین کلی -->
+    <h2>قوانین کلی و الزامات پایه</h2>
+    <div class="danger-box">
+        ⛔ ممنوعیت مطلق استفاده از هوش مصنوعی (AI): استفاده از تصاویر آماده، طرح‌های تکراری، خروجی مستقیم هوش مصنوعی یا طرح‌هایی که ردپای AI در آن‌ها مشخص باشد (مثل دست‌های عجیب، المان‌های بی‌ربط و ترکیب‌بندی غیرطبیعی) به شدت ممنوع است. در صورت مشاهده، محصول توسط راست‌چین رد خواهد شد.
+    </div>
+    
+    <h3>رنگ‌بندی و هویت بصری</h3>
+    <ul>
+        <li>حتماً در طراحی از رنگ‌های لایت، ملایم و چشم‌نواز استفاده شود (نه بیش‌ازحد بیرنگ و خنثی، و نه بیش‌ازحد جیغ و نئونی).</li>
+        <li>برای این محصول، استفاده از رنگ آبی وردپرس (#2271b1) و رنگ‌های هماهنگ با آن توصیه می‌شود.</li>
+    </ul>
 
-            <div class="hero-badges">
-                <span>طراحی سایت</span>
-                <span>توسعه افزونه</span>
-                <span>وب اپلیکیشن</span>
-                <span>سئو و رشد</span>
-            </div>
+    <h3>استانداردهای کیفی</h3>
+    <ul>
+        <li>طراحی باید کاملاً اختصاصی، حرفه‌ای، خوانا و متناسب با هویت همان محصول باشد.</li>
+        <li>تصاویر باید ظاهر طبیعی، ترکیب‌بندی درست، کیفیت بالا و هویت بصری انسانی داشته باشند.</li>
+        <li>استفاده از تصاویر عمومی، نامرتبط، تکراری (Stock) یا بدون ارتباط مستقیم با محصول مجاز نیست.</li>
+        <li>تمامی متون استفاده شده در تصاویر باید به زبان <strong>فارسی روان و صحیح</strong> باشند.</li>
+        <li><strong>استفاده از لوگوی وردپرس در طراحی کاور الزامی است</strong> و باید به‌گونه‌ای باشد که با موضوع محصول (مدیریت پیشخوان) هماهنگی کامل داشته باشد.</li>
+    </ul>
 
-            <div class="hero-ctas">
-                <a href="#design-plans" class="btn btn-primary">
-                    مشاهده پلن‌های طراحی
-                    <svg class="ico" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                </a>
-                <a href="#seo-plans" class="btn btn-ghost">
-                    پلن‌های سئو
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                </a>
-            </div>
+   
 
-            <div class="hero-stats">
-                <div>۵۰+ پروژه موفق</div>
-                <div>۴ پلن شفاف قیمت</div>
-                <div>پشتیبانی واقعی</div>
-                <div>کدنویسی تمیز</div>
-            </div>
+    <!-- آیکون -->
+    <h2>۱. طراحی آیکون محصول</h2>
+    <div class="specs">
+        <span class="spec-item">ابعاد: 320×320 پیکسل</span>
+        <span class="spec-item">کیفیت: رتینا (Retina)</span>
+        <span class="spec-item">فرمت: PNG یا JPG</span>
+    </div>
+
+    <h3>الزامات:</h3>
+    <ul>
+        <li>استفاده از <strong>عنوان فارسی</strong> محصول در آیکون الزامی است.</li>
+        <li>به هیچ وجه از اسکرین‌شات، عکس واقعی و یا درج ورژن (مثل v1.0) در طراحی آیکون استفاده <strong>نکنید</strong>.</li>
+        <li>استفاده از کلمات مخفف و انگلیسی رایج مانند <strong>WP</strong> (به جای کلمه طولانی وردپرس)، HTML و غیره.</li>
+    </ul>
+
+    <!-- متن دقیق آیکون -->
+    <div class="text-requirements">
+        <h4>✍️ متون دقیق برای استفاده در آیکون:</h4>
+        <div class="text-box">
+            <strong>عنوان اصلی:</strong>
+            ادمین‌ پلاس
         </div>
-
-        <div class="hero-visual" aria-hidden="true">
-            <div class="hv-circle">WV<br>2026</div>
-            <div class="hv-browser">
-                <div class="hv-browser-top">
-                    <div class="hv-dots"><i></i><i></i><i></i></div>
-                    <span style="margin-right: .7rem">webvision.ir / امن</span>
-                </div>
-                <div class="hv-browser-body">
-                    <div class="hv-line"></div>
-                    <div class="hv-line short"></div>
-                    <div class="hv-line tiny"></div>
-                    <div class="hv-grid">
-                        <div class="hv-tile">UI/UX</div>
-                        <div class="hv-tile">SEO</div>
-                        <div class="hv-tile">PWA</div>
-                        <div class="hv-tile">API</div>
-                    </div>
-                </div>
-            </div>
-            <div class="hv-note pink">High<br>Performance</div>
-            <div class="hv-note yellow">طراحی<br>اختصاصی<br>بدون قالب!</div>
-            <div class="hv-float-tag">Core Web Vitals</div>
+        <div class="text-box">
+            <strong>زیر عنوان:</strong>
+            مدیریت پیشخوان وردپرس
+        </div>
+        <div class="text-box">
+            <strong>نکته مهم:</strong>
+            حتماً از کلمه مخفف <strong>"WP"</strong> در طراحی استفاده شود (مثلاً در کنار عنوان یا به‌صورت گرافیکی)
         </div>
     </div>
 
-    <!-- ── Capability Strip ── -->
-    <div class="capability-strip">
-        <div class="capability-inner">
-            <div class="capability-title">قابلیت‌های قابل اجرا</div>
-            <div class="capability-grid">
-                <div class="cap-item">توسعه وب‌سایت سفارشی</div>
-                <div class="cap-item">اپلیکیشن و PWA</div>
-                <div class="cap-item">ایجنت هوشمند</div>
-                <div class="cap-item">ربات تلگرامی</div>
-                <div class="cap-item">اتوماسیون فرایندها</div>
-                <div class="cap-item">اتصال API و وب‌هوک</div>
-                <div class="cap-item">پنل مدیریت اختصاصی</div>
-                <div class="cap-item">داشبورد داده و گزارش</div>
+    <div class="visual-example">
+        <h4>🎨 نمونه‌های استاندارد آیکون (برای مشاهده کامل، روی تصاویر کلیک کنید)</h4>
+        
+        <div class="sample-gallery icon-sample">
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/content/2021/11/39999_135502694b7d683433ab15915.png', '_blank')">
+                <img src="https://files.rtl-theme.com/products/content/2021/11/39999_135502694b7d683433ab15915.png" alt="نمونه آیکون ۱">
+                <div class="caption">نمونه آیکون ۱</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/content/2021/11/72828_3bcc116d5213b920ff5cb6ef4.png', '_blank')">
+                <img src="https://files.rtl-theme.com/products/content/2021/11/72828_3bcc116d5213b920ff5cb6ef4.png" alt="نمونه آیکون ۲">
+                <div class="caption">نمونه آیکون ۲</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/content/2021/11/56042_85e886167805ba6e92b8a21cc.png', '_blank')">
+                <img src="https://files.rtl-theme.com/products/content/2021/11/56042_85e886167805ba6e92b8a21cc.png" alt="نمونه آیکون ۳">
+                <div class="caption">نمونه آیکون ۳</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/icons/2020/10/31331_0d56ddc51e0f71d4fa5962574.png', '_blank')">
+                <img src="https://files.rtl-theme.com/products/icons/2020/10/31331_0d56ddc51e0f71d4fa5962574.png" alt="نمونه آیکون ۴">
+                <div class="caption">نمونه آیکون ۴</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/icons/2020/09/75319_5d9e6bf56905fea0a044797bb-1.png', '_blank')">
+                <img src="https://files.rtl-theme.com/products/icons/2020/09/75319_5d9e6bf56905fea0a044797bb-1.png" alt="نمونه آیکون ۵">
+                <div class="caption">نمونه آیکون ۵</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/icons/2020/10/26679_a9cc42aefd8d37071fc9a6f2e-2.png', '_blank')">
+                <img src="https://files.rtl-theme.com/products/icons/2020/10/26679_a9cc42aefd8d37071fc9a6f2e-2.png" alt="نمونه آیکون ۶">
+                <div class="caption">نمونه آیکون ۶</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/icons/2020/09/486_5b68eed21895b52c683db4779-1.png', '_blank')">
+                <img src="https://files.rtl-theme.com/products/icons/2020/09/486_5b68eed21895b52c683db4779-1.png" alt="نمونه آیکون ۷">
+                <div class="caption">نمونه آیکون ۷</div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- DESIGN PLANS -->
-<section id="design-plans" class="section">
-    <h2 class="section-title">پلن‌های طراحی سایت</h2>
-    <div class="plans-grid">
-
-        <article class="plan-card plan-card--green">
-            <div class="plan-head-row">
-                <div class="plan-num g">۰۱</div>
-                <h3 class="plan-name">پلن 1 — پایه (Essential Web)</h3>
-            </div>
-            <div class="plan-meta">
-                <div class="plan-price-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-                    9,000,000 تومان
-                </div>
-                <div class="plan-time-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
-                    6 تا 9 روز کاری
-                </div>
-            </div>
-            <div class="plan-suitable">مناسب برای شروع سریع و اقتصادی</div>
-            <ul class="plan-features">
-                <li><strong>خدمات</strong></li>
-                <li>طراحی سایت با قالب آماده</li>
-                <li>شخصی‌سازی کامل قالب بر اساس هویت و نیاز کسب‌وکار</li>
-                <li>طراحی صفحه اصلی + 4 صفحه داخلی</li>
-                <li>راه‌اندازی کامل CMS وردپرس</li>
-                <li>ورود و دسته‌بندی تا 10 محصول یا خدمت</li>
-                <li>رعایت اصول On-Page SEO (ساختار H1-H3، متا تگ‌ها و URL استاندارد)</li>
-                <li>ایجاد و پیکربندی Sitemap</li>
-                <li>ایجاد و پیکربندی Robots.txt</li>
-                <li>بهینه‌سازی سرعت و عملکرد پایه سایت</li>
-                <li>طراحی کامل ریسپانسیو (موبایل، تبلت و دسکتاپ)</li>
-                <li>راه‌اندازی ابزارهای ضروری سایت (امنیت، کش و سئو)</li>
-                <li>ثبت سایت در موتورهای جستجو و سرویس‌های AI</li>
-                <li>اتصال درگاه پرداخت</li>
-                <li>طراحی و آماده‌سازی تصاویر، بنرها و اسلایدرهای موردنیاز سایت در سطح پایه</li>
-                <li>هماهنگی طراحی بر اساس نمونه‌های انتخابی کارفرما</li>
-                <li>نصب و راه‌اندازی افزونه‌های پریمیوم بدون هزینه اضافی</li>
-            </ul>
-            <div class="plan-revisions"><strong>اصلاحات:</strong> 2 نوبت اصلاح</div>
-        </article>
-
-        <article class="plan-card plan-card--blue plan-card--highlighted">
-            <div class="plan-head-row">
-                <div class="plan-num b">۰۲</div>
-                <h3 class="plan-name">پلن 2 — استاندارد (Business Web)</h3>
-            </div>
-            <div class="plan-meta">
-                <div class="plan-price-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-                    14,000,000 تومان
-                </div>
-                <div class="plan-time-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
-                    8 تا 12 روز کاری
-                </div>
-            </div>
-            <div class="plan-suitable">مناسب کسب‌وکارهای در حال رشد</div>
-            <ul class="plan-features">
-                <li><strong>خدمات</strong></li>
-                <li>شامل تمام امکانات پلن پایه</li>
-                <li>افزایش صفحات تا 8 صفحه داخلی</li>
-                <li>ورود و دسته‌بندی تا 20 محصول یا خدمت</li>
-                <li>اتصال Google Search Console</li>
-                <li>اتصال Google Analytics</li>
-                <li>بهینه‌سازی امنیت سایت</li>
-                <li>ارتقای ساختار UI/UX صفحات کلیدی</li>
-                <li>پیاده‌سازی پنل کاربری کاربران (در صورت نیاز پروژه)</li>
-                <li>بهینه‌سازی حرفه‌ای‌تر ساختار سئو داخلی</li>
-                <li>طراحی ساختار وبلاگ و بخش مقالات</li>
-                <li>اتصال درگاه پرداخت، ترب و ایمالز (در صورت نیاز)</li>
-                <li>بهینه‌سازی مسیر تبدیل کاربران (Conversion Optimization)</li>
-                <li>نصب و راه‌اندازی افزونه‌های پریمیوم بدون هزینه اضافی</li>
-            </ul>
-            <div class="plan-revisions"><strong>اصلاحات:</strong> 3 نوبت اصلاح</div>
-        </article>
-
-        <article class="plan-card plan-card--purple">
-            <div class="plan-head-row">
-                <div class="plan-num p">۰۳</div>
-                <h3 class="plan-name">پلن 3 — حرفه‌ای (Advanced UI + SEO Build)</h3>
-            </div>
-            <div class="plan-meta">
-                <div class="plan-price-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-                    20,000,000 تومان
-                </div>
-                <div class="plan-time-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
-                    10 تا 16 روز کاری
-                </div>
-            </div>
-            <div class="plan-suitable">مناسب برندهایی که ظاهر حرفه‌ای و رشد سئو برایشان اهمیت دارد</div>
-            <ul class="plan-features">
-                <li><strong>خدمات</strong></li>
-                <li>شامل تمام امکانات پلن استاندارد</li>
-                <li>طراحی اختصاصی با Elementor بدون وابستگی به قالب آماده</li>
-                <li>طراحی UI اختصاصی صفحات اصلی و لندینگ‌ها</li>
-                <li>طراحی هدر اختصاصی</li>
-                <li>طراحی فوتر اختصاصی</li>
-                <li>ورود و دسته‌بندی تا 30 محصول یا خدمت</li>
-                <li>تحقیق و تحلیل کلمات کلیدی هدف</li>
-                <li>طراحی ساختار صفحات بر اساس جستجوی کاربران و اصول سئو</li>
-                <li>اتصال و پیکربندی پنل پیامکی (در صورت نیاز)</li>
-                <li>طراحی لندینگ‌پیج‌های فروش محور</li>
-                <li>پیاده‌سازی Schema Markup پایه</li>
-                <li>بهینه‌سازی Core Web Vitals و سرعت سایت</li>
-                <li>پیاده‌سازی تمیز و بهینه بدون کدنویسی اضافی و غیرضروری</li>
-            </ul>
-            <div class="plan-revisions"><strong>اصلاحات:</strong> 3 نوبت اصلاح</div>
-        </article>
-
-        <article class="plan-card plan-card--red">
-            <div class="plan-head-row">
-                <div class="plan-num r">۰۴</div>
-                <h3 class="plan-name">پلن 4 — اختصاصی (Startup / Custom System)</h3>
-            </div>
-            <div class="plan-meta">
-                <div class="plan-price-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-                    20 تا 40 میلیون تومان
-                </div>
-                <div class="plan-time-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
-                    زمان متناسب با پروژه
-                </div>
-            </div>
-            <div class="plan-suitable">مناسب استارتاپ‌ها و پروژه‌های اختصاصی</div>
-            <ul class="plan-features">
-                <li><strong>خدمات</strong></li>
-                <li>طراحی UI/UX اختصاصی</li>
-                <li>ارائه Wireframe و ساختار اولیه پروژه قبل از اجرا</li>
-                <li>توسعه سیستم اختصاصی بدون وابستگی به وردپرس</li>
-                <li>طراحی و پیاده‌سازی CMS اختصاصی</li>
-                <li>طراحی دیتابیس اختصاصی</li>
-                <li>توسعه وب اپلیکیشن PWA</li>
-                <li>معماری اختصاصی سیستم متناسب با نیاز پروژه</li>
-                <li>اتصال APIهای اختصاصی</li>
-                <li>طراحی و توسعه API اختصاصی برای ارتباط با سرویس‌های دیگر</li>
-                <li>امکان اتصال چت‌بات هوش مصنوعی</li>
-                <li>طراحی پنل مدیریت اختصاصی</li>
-                <li>قابلیت توسعه و افزودن ماژول‌های جدید در آینده</li>
-                <li>مستندسازی بخش‌های اصلی پروژه</li>
-                <li>توسعه با کدنویسی بهینه، سبک و High Performance</li>
-            </ul>
-            <div class="plan-revisions"><strong>اصلاحات:</strong> توافقی بر اساس فازهای پروژه</div>
-        </article>
+    <!-- کاور -->
+    <h2>۲. طراحی کاور محصول</h2>
+    <div class="specs">
+        <span class="spec-item">ابعاد: 2100×1040 پیکسل (افقی)</span>
+        <span class="spec-item">کیفیت: رتینا (Retina)</span>
     </div>
-</section>
 
-<!-- Design Terms -->
-<section id="design-terms" class="section">
-    <h2 class="section-title">شرایط عمومی همکاری</h2>
-    <div class="terms-grid">
-        <div class="term-item"><h4>هاست و دامنه</h4><ul><li>تهیه توسط کارفرما جهت مالکیت کامل پروژه</li><li>در صورت نیاز، امکان تهیه و مدیریت توسط توسعه‌دهنده وجود دارد</li></ul></div>
-        <div class="term-item"><h4>سئو</h4><ul><li>رعایت کامل اصول On-Page SEO در تمامی پلن‌ها</li><li>بهینه‌سازی ساختار صفحات و کلمات کلیدی متناسب با سطح هر پلن</li><li>خدمات سئو پیشرفته به‌صورت جداگانه ارائه می‌شود</li></ul></div>
-        <div class="term-item"><h4>طراحی و محتوا</h4><ul><li>طراحی اولیه تصاویر، بنرها و المان‌های بصری انجام می‌شود</li><li>در صورت عدم تأیید، امکان اصلاح بر اساس تصاویر یا پیشنهادات کارفرما وجود دارد</li><li>طراحی نهایی بر اساس سلیقه، نیاز و نمونه‌های معرفی‌شده توسط کارفرما انجام می‌شود</li></ul></div>
-        <div class="term-item"><h4>اصلاحات</h4><ul><li>اصلاحات شامل تغییرات طراحی، چیدمان و محتوای صفحات است</li><li>میزان اصلاحات بر اساس پلن انتخابی محدود می‌باشد</li></ul></div>
-        <div class="term-item"><h4>مالکیت پروژه</h4><ul><li>پس از تسویه حساب نهایی، مالکیت کامل سایت، اطلاعات، فایل‌ها و دسترسی‌های پروژه به کارفرما تعلق خواهد داشت</li></ul></div>
-        <div class="term-item"><h4>شرایط پرداخت</h4><ul><li>20٪ پیش‌پرداخت هنگام شروع پروژه</li><li>80٪ پس از تکمیل، تحویل نهایی و تأیید پروژه</li></ul></div>
-    </div>
-</section>
+    <h3>الزامات:</h3>
+    <ul>
+        <li>نسبت استاندارد استفاده از تصویر و متن در کاور باید <strong>۶۰/۴۰</strong> یا <strong>۵۰/۵۰</strong> باشد.</li>
+        <li>سبک طراحی باید <strong>«کاور ویژگی‌های کلیدی همراه با المان‌های مرتبط»</strong> باشد.</li>
+        <li>از وکتورهای بسیار بزرگ و بی‌ربط به موضوع استفاده نشود.</li>
+        <li><strong>استفاده از لوگوی وردپرس در طراحی کاور الزامی است</strong> و باید به‌گونه‌ای باشد که با موضوع محصول (مدیریت پیشخوان) هماهنگی کامل داشته باشد.</li>
+        <li>متن‌ها باید کوتاه، واضح، در قالب <strong>عنوان (Title)</strong> و کاملاً قابل فهم باشند.</li>
+    </ul>
 
-<!-- SEO Plans -->
-<section id="seo-plans" class="section">
-    <h2 class="section-title">پلن‌های سئو و پشتیبانی</h2>
-    <div class="plans-grid">
-        <article class="plan-card plan-card--green">
-            <div class="plan-head-row">
-                <div class="plan-num g">S1</div>
-                <h3 class="plan-name">پلن 1 — سئو و پشتیبانی (Growth Care)</h3>
-            </div>
-            <div class="plan-meta">
-                <div class="plan-price-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-                    12,000,000 تومان / ماه
-                </div>
-                <div class="plan-time-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                    حداقل همکاری: 3 ماه
-                </div>
-            </div>
-            <div class="plan-suitable">مناسب برای کسب‌وکارهایی که می‌خواهند به‌صورت مستمر رشد ارگانیک داشته باشند و سایت خود را همیشه به‌روز و بدون مشکل نگه دارند</div>
-            <ul class="plan-features">
-                <li><strong>خدمات</strong></li>
-                <li>بررسی و تحلیل کوئری‌های ورودی کاربران از طریق Google Search Console</li>
-                <li>اصلاح و بهینه‌سازی ساختار صفحات برای سئو فرندلی‌تر شدن</li>
-                <li>بهینه‌سازی تگ‌های عنوان، توضیحات متا و ساختار هدینگ‌ها</li>
-                <li>مانیتورینگ مداوم Google Search Console</li>
-                <li>مانیتورینگ Google Analytics و بررسی رفتار کاربران</li>
-                <li>تولید، نگارش و انتشار 14 محتوای بلاگ سئو محور در ماه</li>
-                <li>تحقیق کلمات کلیدی مرتبط با حوزه فعالیت کسب‌وکار</li>
-                <li>لینک‌سازی داخلی میان صفحات و مقالات سایت</li>
-                <li>بهینه‌سازی ساختار URL ها در صورت نیاز</li>
-                <li>بررسی و بهبود Core Web Vitals</li>
-                <li>رفع مشکلات فنی و ساختاری مؤثر بر سئو</li>
-                <li>رفع باگ‌ها و مشکلات احتمالی سایت</li>
-                <li>تهیه نسخه پشتیبان (Backup) دوره‌ای</li>
-                <li>بررسی وضعیت ایندکس صفحات</li>
-                <li>حفظ پایداری و سلامت کلی سایت</li>
-                <li>ارائه گزارش کامل عملکرد و فعالیت‌های انجام‌شده در پایان هر ماه</li>
-            </ul>
-            <div class="plan-revisions"><strong>اصلاحات و پشتیبانی:</strong> رفع کامل خطاها و مشکلات فنی سایت / رسیدگی به مشکلات غیرقابل پیش‌بینی مرتبط با عملکرد سایت / پشتیبانی مستمر در طول مدت قرارداد</div>
-        </article>
-
-        <article class="plan-card plan-card--red plan-card--highlighted">
-            <div class="plan-head-row">
-                <div class="plan-num r">S2</div>
-                <h3 class="plan-name">پلن 2 — سئو و رشد حرفه‌ای (Advanced SEO Growth)</h3>
-            </div>
-            <div class="plan-meta">
-                <div class="plan-price-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-                    20,000,000 تومان / ماه
-                </div>
-                <div class="plan-time-box">
-                    <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                    حداقل همکاری: 3 ماه
-                </div>
-            </div>
-            <div class="plan-suitable">مناسب کسب‌وکارهایی که علاوه بر تولید محتوا، به دنبال رشد سریع‌تر در نتایج گوگل و توسعه اعتبار دامنه هستند</div>
-            <ul class="plan-features">
-                <li><strong>خدمات</strong></li>
-                <li>شامل تمام امکانات پلن Growth Care</li>
-                <li>تولید، نگارش و انتشار 20 محتوای بلاگ سئو محور در ماه</li>
-                <li>تحلیل تخصصی رقبا و فرصت‌های رشد</li>
-                <li>بررسی و تحلیل پیشرفته سئو با ابزارهای تخصصی مانند Semrush و میزفا تولز</li>
-                <li>تحلیل کلمات کلیدی رقبا و شناسایی فرصت‌های جدید</li>
-                <li>تدوین استراتژی محتوایی هدفمند</li>
-                <li>اجرای کمپین‌های رپورتاژ آگهی</li>
-                <li>تدوین و آماده‌سازی محتوای رپورتاژ آگهی</li>
-                <li>برنامه‌ریزی و اجرای لینک‌سازی خارجی</li>
-                <li>تحلیل و مدیریت پروفایل بک‌لینک سایت</li>
-                <li>بهبود ساختار Topic Cluster و لینک‌سازی داخلی پیشرفته</li>
-                <li>پایش مداوم رشد رتبه کلمات کلیدی</li>
-                <li>بررسی فرصت‌های Featured Snippet و نتایج AI Search</li>
-            </ul>
-            <div class="plan-revisions"><strong>گزارش‌دهی:</strong> ارائه گزارش کامل ماهانه / گزارش رشد ورودی‌های ارگانیک / گزارش وضعیت رتبه کلمات کلیدی / گزارش فعالیت‌های انجام‌شده روی سایت / گزارش لینک‌سازی و رپورتاژهای اجراشده</div>
-        </article>
-    </div>
-</section>
-
-<!-- SEO Terms -->
-<section id="seo-terms" class="section">
-    <h2 class="section-title">شرایط همکاری سئو</h2>
-    <div class="terms-grid">
-        <div class="term-item"><h4>مدت قرارداد</h4><ul><li>حداقل مدت همکاری 3 ماه می‌باشد</li><li>نتایج سئو معمولاً به‌صورت تدریجی و در بازه زمانی چندماهه قابل مشاهده خواهند بود</li></ul></div>
-        <div class="term-item"><h4>تولید محتوا</h4><ul><li>تمامی مقالات شامل تحقیق کلمات کلیدی، نگارش، بارگذاری، لینک‌سازی داخلی و بهینه‌سازی سئو می‌باشند</li></ul></div>
-        <div class="term-item"><h4>رپورتاژ و بک‌لینک</h4><ul><li>هزینه انتشار رپورتاژ آگهی و خرید بک‌لینک بر عهده کارفرما می‌باشد</li><li>انتخاب رسانه‌ها و اجرای فرآیند انتشار توسط مجری انجام خواهد شد</li></ul></div>
-        <div class="term-item"><h4>گزارش‌دهی</h4><ul><li>در پایان هر ماه گزارش کامل فعالیت‌ها و نتایج ارائه خواهد شد</li></ul></div>
-        <div class="term-item"><h4>شرایط پرداخت</h4><ul><li>پرداخت به‌صورت ماهانه انجام می‌شود</li><li>شروع هر ماه کاری منوط به تسویه ماه جاری می‌باشد</li></ul></div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="footer-space-inner">
-        <div class="footer-copy">
-            <div class="footer-brand-box">وب ویژن</div>
-            <p>پایان این صفحه، شروع یک همکاری جدی است. اگر به یک سایت سریع، تمیز، سئو محور و قابل توسعه نیاز دارید، وب ویژن برای ساختن نسخه دقیق‌تر کسب‌وکار شما آماده است.</p>
-            <div class="footer-actions">
-                <a href="#design-plans">بازبینی پلن‌های طراحی</a>
-                <a href="#seo-plans">بازبینی پلن‌های سئو</a>
-                <span>محمدرضا چنگیزی</span>
-            </div>
+    <!-- متن دقیق کاور -->
+    <div class="text-requirements">
+        <h4>✍️ متون دقیق برای استفاده در کاور:</h4>
+        <div class="text-box">
+            <strong>عنوان اصلی:</strong>
+            ادمین‌ پلاس
         </div>
-        <div class="space-stage" aria-hidden="true">
-            <div class="space-cube"></div>
-            <div class="orbital-card one">Design System</div>
-            <div class="orbital-card two">SEO Growth</div>
-            <div class="orbital-card three">High Performance</div>
-            <div class="planet-3d"></div>
+        <div class="text-box">
+            <strong>زیر عنوان:</strong>
+            شخصی‌سازی و مدیریت پیشخوان وردپرس
+        </div>
+        <div class="text-box">
+            <strong>متن توضیحات (ویژگی‌های کلیدی):</strong>
+            <ul style="margin: 10px 0; padding-right: 20px;">
+                <li>طراحی نامحدود رنگ های پیشخوان با بیش از ۳۰ رنگ بندی آماده و پیش نمایش زنده</li>
+                <li>شخصی سازی کامل فونت پیشخوان با بیش از ۷۰ فونت فارسی و امکان افزودن فونت اختصاصی</li>
+                <li>برندینگ کامل وردپرس با لوگو، نوار مدیریت، فوتر و صفحه ورود اختصاصی</li>
+                <li>پایش سلامت سایت، وضعیت سرور، پایگاه داده و شناسایی مشکلات احتمالی</li>
+                <li>مدیریت منوهای پیشخوان و کنترل دقیق دسترسی کاربران بر اساس نقش کاربری</li>
+            </ul>
+        </div>
+        <div class="text-box">
+            <strong>نکته مهم:</strong>
+            حتماً از <strong>لوگوی وردپرس</strong> در طراحی استفاده شود و متناسب با محصول (مدیریت پیشخوان) باشد.
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>© ۱۴۰۵ وب ویژن — محمدرضا چنگیزی / طراحی و توسعه وب، سئو و پشتیبانی</p>
-        <a class="back-top" href="#hero">
-            برگشت به شروع
-            <svg class="ico ico-sm" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
-        </a>
+
+    <div class="visual-example">
+        <h4>🖼️ نمونه‌های استاندارد کاور محصول (برای مشاهده کامل، روی تصاویر کلیک کنید)</h4>
+        
+        <div class="sample-gallery cover-sample">
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/content/2022/04/97887_ea31880b93897a6937e78cc52.jpg', '_blank')">
+                <img src="https://files.rtl-theme.com/products/content/2022/04/97887_ea31880b93897a6937e78cc52.jpg" alt="نمونه کاور ۱">
+                <div class="caption">نمونه کاور ۱</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/content/2021/11/44420_d5614372d66059552ab7abab5.jpg', '_blank')">
+                <img src="https://files.rtl-theme.com/products/content/2021/11/44420_d5614372d66059552ab7abab5.jpg" alt="نمونه کاور ۲">
+                <div class="caption">نمونه کاور ۲</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/content/2021/11/53495_0a9e3bb992e9d543666074396.jpg', '_blank')">
+                <img src="https://files.rtl-theme.com/products/content/2021/11/53495_0a9e3bb992e9d543666074396.jpg" alt="نمونه کاور ۳">
+                <div class="caption">نمونه کاور ۳</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/covers/2020/10/22104_e2e1c0bdb25753647ae3ac994-2.jpg', '_blank')">
+                <img src="https://files.rtl-theme.com/products/covers/2020/10/22104_e2e1c0bdb25753647ae3ac994-2.jpg" alt="نمونه کاور ۴">
+                <div class="caption">نمونه کاور ۴</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/products/covers/2020/09/21771_3f65f963fb70b2b8deda77f9d.jpg', '_blank')">
+                <img src="https://files.rtl-theme.com/products/covers/2020/09/21771_3f65f963fb70b2b8deda77f9d.jpg" alt="نمونه کاور ۵">
+                <div class="caption">نمونه کاور ۵</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/attachments/2021/09/109b6f0097ce3203f33a09391ff36555003f9146809bdb-1050x520.png', '_blank')">
+                <img src="https://files.rtl-theme.com/attachments/2021/09/109b6f0097ce3203f33a09391ff36555003f9146809bdb-1050x520.png" alt="نمونه کاور ۶">
+                <div class="caption">نمونه کاور ۶</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/attachments/2021/06/63fe06eaf9b59213f6f5df79f6b93e938ada057414701b-1020x520.jpg', '_blank')">
+                <img src="https://files.rtl-theme.com/attachments/2021/06/63fe06eaf9b59213f6f5df79f6b93e938ada057414701b-1020x520.jpg" alt="نمونه کاور ۷">
+                <div class="caption">نمونه کاور ۷</div>
+            </div>
+            <div class="sample-card" onclick="window.open('https://files.rtl-theme.com/attachments/2021/01/5115dd19077779f58aee0a53231cf4f39408b1d265f6cb-1020x520.jpg', '_blank')">
+                <img src="https://files.rtl-theme.com/attachments/2021/01/5115dd19077779f58aee0a53231cf4f39408b1d265f6cb-1020x520.jpg" alt="نمونه کاور ۸">
+                <div class="caption">نمونه کاور ۸</div>
+            </div>
+        </div>
     </div>
-</footer>
 
-<script>
-(function () {
-    var targets = document.querySelectorAll('.section, .plan-card, .term-item, .cap-item, .footer-space-inner');
-    if (!('IntersectionObserver' in window)) {
-        targets.forEach(function (el) { el.classList.add('is-visible'); });
-        return;
-    }
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    <!-- اینفوگرافیک -->
+    <h2>۳. طراحی اینفوگرافیک</h2>
+    <div class="specs">
+        <span class="spec-item">عرض: دقیقاً 960 پیکسل</span>
+        <span class="spec-item">حجم فایل: زیر 1 مگابایت</span>
+        <span class="spec-item">ارتفاع: شناور (بر اساس محتوا)</span>
+    </div>
 
-    targets.forEach(function (el, index) {
-        el.classList.add('motion-reveal');
-        el.style.transitionDelay = Math.min((index % 6) * 70, 350) + 'ms';
-        observer.observe(el);
-    });
-})();
-</script>
+    <div class="info-box">
+        💡 <strong>هدف اینفوگرافیک:</strong> کاربر بدون نیاز به خواندن متن طولانی، با یک نگاه تصویر کلی از محصول، کاربردها و ویژگی‌های آن را درک کند.
+    </div>
+
+    <h3>الزامات:</h3>
+    <ul>
+        <li><strong>استفاده از اسکرین‌شات‌های واقعی از افزونه ادمین پلاس الزامی است.</strong> لطفاً افزونه را دانلود و نصب کنید تا از تصاویر واقعی محیط افزونه استفاده کنید.</li>
+        <li>تمام ویژگی‌های محصول باید به صورت <strong>لیست خطی و منظم</strong> آورده شوند.</li>
+        <li><strong>فقط عنوان ویژگی‌ها</strong> نوشته شود (به هیچ وجه توضیح اضافه یا شرح جزئیات در این بخش قرار نگیرد).</li>
+        <li>هر بخش از اینفوگرافیک باید با یک اسکرین‌شات حرفه‌ای از همان بخش در افزونه همراه باشد (مشابه نمونه الگو).</li>
+    </ul>
+
+    <div class="warning-box">
+        ⚠️ <strong>راهنمای طراحی اینفوگرافیک:</strong><br>
+        ۱. افزونه را از لینک بالا دانلود و در وردپرس نصب کنید<br>
+        ۲. از بخش‌های مختلف افزونه (رنگ‌بندی، فونت، لوگو، منوها، سلامت سایت و...) اسکرین‌شات بگیرید<br>
+        ۳. اسکرین‌شات‌ها را به‌صورت حرفه‌ای و مشابه نمونه الگو در اینفوگرافیک قرار دهید<br>
+        ۴. برای هر اسکرین‌شات، عنوان بخش را به‌صورت کوتاه بنویسید (بدون توضیح اضافه)
+    </div>
+
+    <div class="visual-example">
+        <h4>📊 نمونه استاندارد اینفوگرافیک (برای مشاهده کامل، روی تصویر کلیک کنید)</h4>
+        <div class="infographic-sample" onclick="window.open('https://content-media.rtlcdn.com/post-305659/7526a39700cf04527707229f3126744f5d809249b61de3.jpg', '_blank')">
+            <img src="https://content-media.rtlcdn.com/post-305659/7526a39700cf04527707229f3126744f5d809249b61de3.jpg" 
+                 alt="نمونه اینفوگرافیک استاندارد راست‌چین">
+            <p style="font-size: 12px; color: #7f8c8d; margin-top: 10px;">🔍 کلیک کنید برای مشاهده تصویر کامل</p>
+        </div>
+    </div>
+
+    <!-- جدول مقایسه‌ای -->
+    <h2>📋 جدول خلاصه استانداردها</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>نوع تصویر</th>
+                <th>ابعاد</th>
+                <th>الزامات کلیدی</th>
+                <th>متن‌ها</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>آیکون</strong></td>
+                <td>320×320 پیکسل</td>
+                <td>عنوان فارسی، بدون اسکرین‌شات، استفاده از WP</td>
+                <td>ادمین‌ پلاس<br>مدیریت پیشخوان وردپرس</td>
+            </tr>
+            <tr>
+                <td><strong>کاور</strong></td>
+                <td>2100×1040 پیکسل</td>
+                <td>نسبت ۶۰/۴۰ یا ۵۰/۵۰، لوگوی وردپرس، متن کوتاه</td>
+                <td>ادمین‌ پلاس<br>شخصی‌سازی و مدیریت پیشخوان وردپرس<br>+ ۵ ویژگی کلیدی</td>
+            </tr>
+            <tr>
+                <td><strong>اینفوگرافیک</strong></td>
+                <td>عرض 960 پیکسل<br>حجم زیر 1MB</td>
+                <td>اسکرین‌شات از افزونه، لیست خطی ویژگی‌ها</td>
+                <td>عنوان بخش‌ها (بدون توضیح)<br>مشابه نمونه الگو</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- تحویل -->
+    <h2>۴. نحوه تحویل و خروجی‌ها</h2>
+    <ul>
+        <li>لطفاً تمامی فایل‌ها را در ابعاد ذکر شده و با فرمت <strong>PNG</strong> (برای حفظ کیفیت) و <strong>JPG</strong> (برای کاهش حجم اینفوگرافیک) خروجی بگیرید.</li>
+        <li>برای هر تصویر، خروجی نهایی + فایل لایه باز (<strong>PSD یا AI</strong>) تحویل داده شود.</li>
+        <li>یک مرتبه نیاز به ویرایش شاید داشته باشه هر دیزاین.</li>
+        <li><strong>برای طراحی اینفوگرافیک، حتماً افزونه را دانلود و نصب کنید تا با محیط آن آشنا شوید.</strong></li>
+    </ul>
+
+    <div class="footer">
+        <p>با تشکر از دقت و حرفه‌ای بودن شما | در صورت وجود هرگونه ابهام، پیش از شروع طراحی حتماً هماهنگ کنید.</p>
+    </div>
+</div>
+
 </body>
 </html>
