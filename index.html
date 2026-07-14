@@ -66,6 +66,21 @@
         .custom-cursor-ring{position:fixed;top:0;left:0;width:40px;height:40px;border:3px solid var(--black);background:rgba(255,204,0,.25);box-shadow:4px 4px 0 var(--black);pointer-events:none;z-index:99998;will-change:transform;transition:width .2s,height .2s,background .2s,border-color .2s;display:flex;align-items:center;justify-content:center}
         .custom-cursor-ring.hovered{background:var(--pink);border-color:var(--black);color:#fff;box-shadow:6px 6px 0 var(--black)}
         .cursor-label{font-size:.55rem;font-weight:900;color:#fff;letter-spacing:.5px}
+        
+        /* --- Ponisha Popup Styles --- */
+        .popup-overlay{position:fixed;inset:0;background:rgba(11,11,11,.88);backdrop-filter:blur(6px);z-index:100005;display:flex;align-items:center;justify-content:center;padding:1.5rem;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        .popup-content{background:var(--paper);border:var(--bw) solid var(--black);box-shadow:16px 16px 0 var(--black);padding:2.5rem 2rem 2rem;max-width:480px;width:100%;text-align:center;position:relative;animation:heroPop .5s cubic-bezier(.2,.9,.2,1) both;transform:rotate(-1.5deg)}
+        .popup-close{position:absolute;top:-20px;left:-20px;width:52px;height:52px;background:var(--red);color:#fff;border:4px solid var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:5px 5px 0 var(--black);transition:transform .15s,box-shadow .15s;z-index:2}
+        .popup-close:hover{transform:translate(-3px,-3px) rotate(90deg);box-shadow:8px 8px 0 var(--black)}
+        .popup-icon{font-size:3.5rem;margin-bottom:1rem;display:inline-block;animation:softFloat 3s ease-in-out infinite}
+        .popup-title{font-size:1.9rem;font-weight:900;margin-bottom:1rem;color:var(--black);letter-spacing:-1px}
+        .popup-text{font-size:1.15rem;font-weight:800;line-height:1.8;margin-bottom:2rem;color:var(--black)}
+        .popup-text strong{background:var(--yellow);padding:0 6px;border:3px solid var(--black);box-shadow:3px 3px 0 var(--black);display:inline-block;transform:rotate(-1deg)}
+        .popup-btn{width:100%;justify-content:center;font-size:1.15rem;padding:1rem 1.5rem;background:var(--blue);color:#fff}
+        .popup-btn:hover{background:var(--blue-light);transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--black)}
+        @media(max-width:680px){.popup-content{padding:2.5rem 1.5rem 1.5rem;transform:rotate(0deg);box-shadow:10px 10px 0 var(--black)}.popup-close{top:-16px;left:50%;transform:translateX(-50%)}.popup-close:hover{transform:translateX(-50%) rotate(90deg)}.popup-title{font-size:1.6rem}.popup-text{font-size:1.05rem}}
+
         #hero{position:relative;background:var(--paper);border-bottom:var(--bw) solid var(--black);overflow:hidden}
         #hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#d8d3c8 1.8px,transparent 1.9px),linear-gradient(115deg,rgba(255,204,0,.08) 0%,transparent 40%),repeating-linear-gradient(45deg,transparent,transparent 22px,rgba(0,0,0,.024) 22px,rgba(0,0,0,.024) 24px);background-size:20px 20px,100% 100%,auto auto;pointer-events:none}
         .hero-inner{position:relative;z-index:2;max-width:var(--container);margin:0 auto;padding:6rem 2.5rem 4rem;display:grid;grid-template-columns:1.18fr .92fr;gap:3.4rem;align-items:center}
@@ -337,6 +352,40 @@ return(
 );
 }
 
+// --- Ponisha Popup Component ---
+function PonishaPopup({ isOpen, onClose }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="popup-overlay" onClick={onClose}>
+      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+        <button className="popup-close" onClick={onClose} aria-label="بستن">
+          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+        <div className="popup-icon">🚀</div>
+        <h3 className="popup-title">شروع همکاری</h3>
+        <p className="popup-text">
+          برای ارتباط با من و شروع پروژه، لطفاً <strong>حتماً</strong> از طریق پلتفرم <strong>پونیشا</strong> اقدام کنید.
+        </p>
+        {/* ⚠️ لطفاً لینک پروفایل پونیشای خود را در href زیر جایگزین کنید */}
+        <a 
+          href="https://ponisha.ir" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn popup-btn"
+        >
+          رفتن به پروفایل پونیشا
+          <svg className="ico" fill="none" stroke="currentColor" strokeWidth="2.6" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function Carousel({children,breakpoint=1024,showArrows=true}){
 const items=React.Children.toArray(children);
 const total=items.length;
@@ -406,6 +455,8 @@ const IconCal=()=>(<svg className="ico ico-sm" fill="none" stroke="currentColor"
 const IconExt=()=>(<svg className="project-icon" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>);
 
 function App(){
+const [isPopupOpen, setIsPopupOpen] = useState(true);
+
 useEffect(()=>{
 const targets=document.querySelectorAll('.section,.plan-card,.term-item,.cap-item,.footer-space-inner,.style-card,.project-link');
 if(!('IntersectionObserver' in window)){targets.forEach(el=>el.classList.add('is-visible'));return;}
@@ -454,6 +505,7 @@ const projects=[
 return(
 <>
 <CustomCursor/>
+<PonishaPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
 <section id="hero">
 <div className="float-shape fs1"></div>
 <div className="float-shape fs3"></div>
