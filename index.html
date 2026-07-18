@@ -108,14 +108,12 @@
         .orb-2 { bottom: 10%; left: -10%; width: 700px; height: 700px; background: var(--accent-purple); }
         .orb-3 { top: 40%; right: 20%; width: 400px; height: 400px; background: var(--accent-yellow); opacity: 0.15; }
 
-        /* --- GLITCH FIX: Isolation and optimized shadows --- */
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: var(--blur);
             -webkit-backdrop-filter: var(--blur);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
-            /* Prevent background bleed and rendering artifacts */
             isolation: isolate; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -281,7 +279,13 @@
         .hv-metric-value.highlight { color: var(--accent-yellow); }
         .hv-metric-value.pass { color: var(--accent-blue); }
 
-        .hv-tech-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+        .hv-tech-badges { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 0.5rem; 
+            justify-content: center; 
+            padding-bottom: 0.5rem; /* Added ~8px padding to prevent sticking to bottom */
+        }
         .hv-badge {
             padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.75rem; font-weight: 800;
             border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(4px);
@@ -295,7 +299,10 @@
         .capabilities-intro { text-align: center; max-width: 900px; margin: 0 auto 3rem; }
         .capabilities-intro h3 { font-size: 1.5rem; font-weight: 800; color: var(--accent-yellow); margin-bottom: 1rem; }
         .capabilities-intro-text {
-            font-size: 1.2rem; color: var(--text-secondary); line-height: 1.8; font-weight: 500;
+            font-size: 16.8px; /* Exactly as requested */
+            color: var(--text-secondary); 
+            line-height: 1.8; 
+            font-weight: 500;
         }
 
         .capabilities-grid {
@@ -495,10 +502,10 @@
         .style-info h4 { font-weight: 800; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.3rem; }
         .style-info p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
 
-        /* --- Footer --- */
+        /* --- Footer (Simplified & Clean) --- */
         .site-footer {
             position: relative; overflow: hidden;
-            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+            background: #020617; /* Clean, solid deep dark background */
             border-top: 1px solid var(--glass-border);
             color: var(--text-secondary);
         }
@@ -508,22 +515,14 @@
                 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 40px 40px;
-            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
             pointer-events: none;
+            opacity: 0.4;
         }
-        .footer-glow {
-            position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
-            width: 800px; height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(168, 85, 247, 0.15) 40%, transparent 70%);
-            pointer-events: none; z-index: 0;
-        }
-        .footer-orb {
-            position: absolute; bottom: -50px; right: 10%;
-            width: 200px; height: 200px; border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(250, 204, 21, 0.3), rgba(236, 72, 153, 0.2));
-            filter: blur(40px); pointer-events: none;
-        }
+        /* Hide glowing orbs to prevent multi-colored glitches */
+        .footer-glow, .footer-orb { display: none; }
+        
         .footer-inner {
             position: relative; z-index: 1;
             max-width: var(--container); margin: 0 auto; padding: 3rem 2rem 2rem;
@@ -534,7 +533,6 @@
             background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 0.2rem; letter-spacing: -1px;
-            text-shadow: 0 0 30px rgba(250, 204, 21, 0.3);
         }
         .footer-desc {
             max-width: 600px; font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary);
@@ -578,25 +576,30 @@
            RESPONSIVE & MOBILE OPTIMIZATION
            ========================================= */
         
-        /* Tablet & Small Desktop */
         @media (max-width: 1024px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .hero-inner { 
+                grid-template-columns: 1fr; 
+                gap: 1rem; /* Reduced gap between copy and visual */
+                text-align: center; 
+            }
+            .hero-copy { order: 1; } /* Text on top */
+            .hero-visual { 
+                order: 2; /* Visual on bottom */
+                min-height: 350px; 
+                transform: scale(0.9); 
+                transform-origin: top center; 
+                margin-top: 0; 
+            }
             .hero-eyebrow { align-items: center; justify-content: center; margin: 0 auto 1.8rem; }
             .hero-badges { justify-content: center; }
             .hero-ctas { justify-content: center; }
-            /* SWAP ORDER: Visual first, copy second on mobile/tablet */
-            .hero-visual { order: -1; min-height: 400px; }
             .capabilities-intro { text-align: center; }
             #testimonials .carousel-desktop-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
 
-        /* Mobile Standard (Under 768px) */
         @media (max-width: 768px) {
             #hero { padding: 4rem 1.25rem 3rem; }
-            .hero-inner { gap: 2.5rem; }
-            .hero-visual { min-height: 350px; transform: scale(0.9); transform-origin: top center; margin-top: -1rem; }
-            
             .section { padding: 3.5rem 1.25rem; }
             .section-title { font-size: 1.8rem; margin-bottom: 2.5rem; }
             
@@ -604,7 +607,6 @@
             #design-terms .terms-grid,
             #seo-terms .terms-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 
-            /* Compact Plan Cards for Mobile */
             .plan-card { padding: 1.25rem 1rem; }
             .plan-name { font-size: 1.05rem; }
             .plan-features li { font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.4rem; padding-right: 1.2rem; }
@@ -613,7 +615,6 @@
             .plan-revisions-chip { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
         }
 
-        /* Mobile Small (Under 640px) - CRITICAL FIXES */
         @media (max-width: 640px) {
             #hero { padding: 3rem 1rem 2.5rem; }
             .hero-brand { font-size: 3.2rem; margin-bottom: 0.3rem; }
@@ -626,22 +627,35 @@
                 font-size: 0.9rem; 
             }
             
-            .hero-badges { gap: 0.5rem; justify-content: center; }
-            .hero-badges span { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
+            /* Force 4 badges into a single row on mobile */
+            .hero-badges { 
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 0.25rem;
+                justify-content: center;
+                width: 100%;
+                padding: 0 0.2rem;
+            }
+            .hero-badges span { 
+                font-size: 0.68rem; 
+                padding: 0.3rem 0.1rem; 
+                white-space: nowrap; 
+                flex: 1; 
+                text-align: center; 
+                line-height: 1.2;
+            }
             
             .hero-ctas { flex-direction: column; gap: 0.75rem; width: 100%; }
             .btn { width: 100%; justify-content: center; padding: 0.85rem 1.2rem; font-size: 1rem; }
             
-            /* Keep visual compact but visible */
             .hero-visual { 
                 min-height: 320px; 
                 transform: scale(0.85); 
                 transform-origin: top center; 
-                margin-top: -1.5rem;
+                margin-top: 0;
                 margin-bottom: 1rem;
             }
 
-            /* FORCE 2 COLUMNS for SEO metrics to save vertical space */
             .hv-seo-metrics { 
                 grid-template-columns: 1fr 1fr !important; 
                 gap: 0.4rem; 
@@ -655,13 +669,30 @@
             .section-title { font-size: 1.6rem; margin-bottom: 2rem; }
             .section-title::after { width: 50px; }
 
-            .capabilities-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-            .cap-item { padding: 1rem; font-size: 0.95rem; }
-            .cap-icon { width: 36px; height: 36px; min-width: 36px; }
+            /* Capabilities: 2 columns, stacked icon/text to keep font readable */
+            .capabilities-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 0.75rem; 
+            }
+            .cap-item { 
+                padding: 0.8rem 0.5rem; 
+                font-size: 0.85rem; 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 0.4rem; 
+            }
+            .cap-icon { width: 28px; height: 28px; min-width: 28px; }
 
-            .domains-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-            .domain-card { padding: 1rem 0.5rem; min-height: 80px; }
-            .domain-name { font-size: 0.9rem; }
+            /* Domains: 2 columns on mobile */
+            .domains-grid { 
+                grid-template-columns: repeat(2, 1fr) !important; 
+                gap: 0.75rem; 
+            }
+            .domain-card { padding: 0.8rem 0.4rem; min-height: 70px; }
+            .domain-name { 
+                font-size: 0.8rem; 
+                word-break: break-all; 
+            }
 
             #design-terms .terms-grid,
             #seo-terms .terms-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -677,17 +708,11 @@
             .projects-grid { grid-template-columns: 1fr; }
             .project-link { padding: 1rem 1.25rem; font-size: 0.95rem; }
 
-            /* GLITCH FIX FOR MOBILE: Simplify shadows to prevent rendering bugs */
             .glass-card {
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
             }
-        }
-
-        @media (max-width: 400px) {
-            .hero-brand { font-size: 2.8rem; }
-            .domains-grid { grid-template-columns: 1fr; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1255,8 +1280,6 @@
 
                     <footer className="site-footer">
                         <div className="footer-grid-bg"></div>
-                        <div className="footer-glow"></div>
-                        <div className="footer-orb"></div>
                         <div className="footer-inner">
                             <div className="footer-brand">وب ویژن</div>
                             <p className="footer-desc">
@@ -1265,7 +1288,7 @@
                         </div>
                         <div className="footer-divider"></div>
                         <div className="footer-bottom">
-                            <p>© ۱۴۰۵ محمدرضا چنگیزی — وب‌ویژن | توسعه وب، سئو و برنامه‌نویسی</p>
+                            <p>© ۱۴۰۵ محمدرضا چنگیزی — وب‌ویژن</p>
                             <a className="back-top" href="#hero">بازگشت به بالا<svg className="ico ico-sm" fill="none" stroke="currentColor" strokeWidth="2.6" viewBox="0 0 24 24" style={{marginRight:'8px'}}><path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7"/></svg></a>
                         </div>
                     </footer>
