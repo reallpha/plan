@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>محمدرضا چنگیزی | طراحی سایت و سئو | وب ویژن</title>
     
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" as="style">
@@ -64,10 +64,9 @@
             --bg-secondary: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
-            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-bg: rgba(255, 255, 255, 0.04);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-highlight: rgba(255, 255, 255, 0.15);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             --blur: blur(16px);
             --accent-yellow: #facc15;
             --accent-blue: #3b82f6;
@@ -87,7 +86,6 @@
                 --glass-bg: rgba(255, 255, 255, 0.7);
                 --glass-border: rgba(0, 0, 0, 0.06);
                 --glass-highlight: rgba(255, 255, 255, 0.9);
-                --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
             }
         }
 
@@ -100,6 +98,7 @@
             line-height: 1.7;
             overflow-x: hidden;
             transition: background 0.3s ease, color 0.3s ease;
+            -webkit-text-size-adjust: 100%;
         }
 
         .ambient-orb {
@@ -109,18 +108,22 @@
         .orb-2 { bottom: 10%; left: -10%; width: 700px; height: 700px; background: var(--accent-purple); }
         .orb-3 { top: 40%; right: 20%; width: 400px; height: 400px; background: var(--accent-yellow); opacity: 0.15; }
 
+        /* --- GLITCH FIX: Isolation and optimized shadows --- */
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: var(--blur);
             -webkit-backdrop-filter: var(--blur);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
-            box-shadow: var(--glass-shadow);
+            /* Prevent background bleed and rendering artifacts */
+            isolation: isolate; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            will-change: transform;
         }
         .glass-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.15);
             border-color: var(--glass-highlight);
         }
 
@@ -129,34 +132,34 @@
 
         /* --- Popup --- */
         .popup-overlay {
-            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px);
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px);
             z-index: 100005; display: flex; align-items: center; justify-content: center; padding: 1.5rem; animation: fadeIn 0.4s ease;
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .popup-content {
             background: var(--bg-secondary); border: 1px solid var(--glass-border);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); padding: 2.5rem 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); padding: 2rem 1.5rem;
             max-width: 480px; width: 100%; text-align: center; position: relative;
             border-radius: var(--radius); animation: popIn 0.5s cubic-bezier(0.2, 0.9, 0.2, 1) both;
         }
         @keyframes popIn { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
         .popup-close {
-            position: absolute; top: 16px; left: 16px; width: 36px; height: 36px;
+            position: absolute; top: 12px; left: 12px; width: 32px; height: 32px;
             background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: all 0.2s;
         }
         .popup-close:hover { background: #ef4444; color: #fff; transform: rotate(90deg); }
-        .popup-icon { font-size: 3rem; margin-bottom: 1rem; display: inline-block; animation: softFloat 3s ease-in-out infinite; }
-        .popup-title { font-size: 1.6rem; font-weight: 900; margin-bottom: 1rem; color: var(--text-primary); }
-        .popup-text { font-size: 1.1rem; font-weight: 600; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary); }
+        .popup-icon { font-size: 2.5rem; margin-bottom: 0.8rem; display: inline-block; animation: softFloat 3s ease-in-out infinite; }
+        .popup-title { font-size: 1.4rem; font-weight: 900; margin-bottom: 0.8rem; color: var(--text-primary); }
+        .popup-text { font-size: 1rem; font-weight: 600; line-height: 1.7; margin-bottom: 1.5rem; color: var(--text-secondary); }
         .popup-text strong { color: var(--accent-yellow); }
         .popup-btn {
-            width: 100%; justify-content: center; font-size: 1.1rem; padding: 1rem 1.5rem;
+            width: 100%; justify-content: center; font-size: 1rem; padding: 0.9rem 1.2rem;
             background: var(--accent-blue); color: #fff; border: none; border-radius: 12px;
             font-weight: 800; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-flex;
         }
-        .popup-btn:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4); }
+        .popup-btn:hover { background: #2563eb; transform: translateY(-2px); }
 
         /* --- Hero Section --- */
         #hero { position: relative; padding: 8rem 2rem 5rem; overflow: hidden; }
@@ -492,7 +495,7 @@
         .style-info h4 { font-weight: 800; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.3rem; }
         .style-info p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
 
-        /* --- Footer (Optimized Height) --- */
+        /* --- Footer --- */
         .site-footer {
             position: relative; overflow: hidden;
             background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
@@ -571,42 +574,122 @@
             transform: translateY(0); 
         }
 
-        /* --- Responsive --- */
-        @media (min-width: 1201px) {
-            #design-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
-            #seo-terms .terms-grid { grid-template-columns: repeat(4, 1fr); }
-            .domains-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-        @media (max-width: 1200px) {
-            #design-terms .terms-grid { grid-template-columns: repeat(3, 1fr); }
-            #seo-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
-            .domains-grid { grid-template-columns: repeat(3, 1fr); }
-        }
+        /* =========================================
+           RESPONSIVE & MOBILE OPTIMIZATION
+           ========================================= */
+        
+        /* Tablet & Small Desktop */
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
             .hero-eyebrow { align-items: center; justify-content: center; margin: 0 auto 1.8rem; }
             .hero-badges { justify-content: center; }
             .hero-ctas { justify-content: center; }
-            .hero-visual { min-height: 450px; } /* Removed order: -1 */
+            /* SWAP ORDER: Visual first, copy second on mobile/tablet */
+            .hero-visual { order: -1; min-height: 400px; }
             .capabilities-intro { text-align: center; }
             #testimonials .carousel-desktop-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
+
+        /* Mobile Standard (Under 768px) */
         @media (max-width: 768px) {
-            .section { padding: 3rem 1.25rem; }
-            .section-title { font-size: 1.9rem; margin-bottom: 2.5rem; }
-            .domains-grid { grid-template-columns: repeat(2, 1fr); }
-            #design-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
-            #seo-terms .terms-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-brand { font-size: 3.5rem; }
-            .hero-name { font-size: 1.5rem; }
-            .capabilities-intro h3 { font-size: 1.3rem; }
-            .capabilities-intro-text { font-size: 1.05rem; }
+            #hero { padding: 4rem 1.25rem 3rem; }
+            .hero-inner { gap: 2.5rem; }
+            .hero-visual { min-height: 350px; transform: scale(0.9); transform-origin: top center; margin-top: -1rem; }
+            
+            .section { padding: 3.5rem 1.25rem; }
+            .section-title { font-size: 1.8rem; margin-bottom: 2.5rem; }
+            
+            .domains-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            #design-terms .terms-grid,
+            #seo-terms .terms-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+            /* Compact Plan Cards for Mobile */
+            .plan-card { padding: 1.25rem 1rem; }
+            .plan-name { font-size: 1.05rem; }
+            .plan-features li { font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.4rem; padding-right: 1.2rem; }
+            .plan-features li strong { font-size: 0.8rem; padding: 0.05rem 0.3rem; }
+            .plan-revisions { padding: 0.75rem 1rem; margin: 0 -1rem -1.25rem -1rem; }
+            .plan-revisions-chip { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
         }
-        @media (max-width: 480px) {
+
+        /* Mobile Small (Under 640px) - CRITICAL FIXES */
+        @media (max-width: 640px) {
+            #hero { padding: 3rem 1rem 2.5rem; }
+            .hero-brand { font-size: 3.2rem; margin-bottom: 0.3rem; }
+            .hero-name { font-size: 1.3rem; margin-bottom: 1rem; }
+            
+            .hero-eyebrow { 
+                width: 100%; 
+                justify-content: center; 
+                padding: 0.7rem 1rem; 
+                font-size: 0.9rem; 
+            }
+            
+            .hero-badges { gap: 0.5rem; justify-content: center; }
+            .hero-badges span { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
+            
+            .hero-ctas { flex-direction: column; gap: 0.75rem; width: 100%; }
+            .btn { width: 100%; justify-content: center; padding: 0.85rem 1.2rem; font-size: 1rem; }
+            
+            /* Keep visual compact but visible */
+            .hero-visual { 
+                min-height: 320px; 
+                transform: scale(0.85); 
+                transform-origin: top center; 
+                margin-top: -1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            /* FORCE 2 COLUMNS for SEO metrics to save vertical space */
+            .hv-seo-metrics { 
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 0.4rem; 
+                padding: 0.6rem; 
+            }
+            .hv-metric-card { padding: 0.4rem; }
+            .hv-metric-value { font-size: 0.95rem; }
+            .hv-metric-label { font-size: 0.65rem; }
+
+            .section { padding: 3rem 1rem; }
+            .section-title { font-size: 1.6rem; margin-bottom: 2rem; }
+            .section-title::after { width: 50px; }
+
+            .capabilities-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            .cap-item { padding: 1rem; font-size: 0.95rem; }
+            .cap-icon { width: 36px; height: 36px; min-width: 36px; }
+
+            .domains-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .domain-card { padding: 1rem 0.5rem; min-height: 80px; }
+            .domain-name { font-size: 0.9rem; }
+
+            #design-terms .terms-grid,
+            #seo-terms .terms-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .term-item { padding: 1.25rem 1rem; }
+            .term-item h4 { font-size: 1.05rem; padding: 0.2rem 0.6rem; }
+            .term-item ul li { font-size: 0.9rem; }
+
+            .styles-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .style-item { padding: 1.25rem 1rem; }
+            .style-info h4 { font-size: 1rem; }
+            .style-info p { font-size: 0.9rem; }
+
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-link { padding: 1rem 1.25rem; font-size: 0.95rem; }
+
+            /* GLITCH FIX FOR MOBILE: Simplify shadows to prevent rendering bugs */
+            .glass-card {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-brand { font-size: 2.8rem; }
             .domains-grid { grid-template-columns: 1fr; }
-            #seo-terms .terms-grid { grid-template-columns: 1fr; }
         }
+
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
             .motion-reveal { opacity: 1; transform: none; }
@@ -988,7 +1071,7 @@
                                     <span className="live-dot"></span>
                                     <div style={{display:'flex', flexDirection:'column', alignItems:'flex-start', gap:'2px'}}>
                                         <span>پروژه‌ی جدیدی در ذهنته؟</span>
-                                        <span style={{fontSize:'0.85rem', opacity:0.8}}>آماده‌ی همکاری و شروع پروژه در سال ۱۴۰۵ | تهران | ریموت</span>
+                                        <span style={{fontSize:'0.85rem', opacity:0.8}}>آماده‌ی همکاری و شروع پروژه در سال ۱۴۰۵</span>
                                     </div>
                                 </div>
 
