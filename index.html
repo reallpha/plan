@@ -12,8 +12,7 @@
     <meta name="keywords" content="محمدرضا چنگیزی, وب ویژن, طراحی سایت, سئو, برنامه‌نویس فرانت, طراحی وب‌سایت, متخصص سئو, وردپرس, React">
     <meta name="author" content="محمدرضا چنگیزی">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#020617">
     
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="fa_IR">
@@ -59,6 +58,7 @@
     <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
 
     <style>
+        /* --- DARK MODE ONLY --- */
         :root {
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
@@ -75,18 +75,6 @@
             --accent-purple: #a855f7;
             --container: 1280px;
             --radius: 16px;
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg-primary: #f8fafc;
-                --bg-secondary: #ffffff;
-                --text-primary: #0f172a;
-                --text-secondary: #475569;
-                --glass-bg: rgba(255, 255, 255, 0.7);
-                --glass-border: rgba(0, 0, 0, 0.06);
-                --glass-highlight: rgba(255, 255, 255, 0.9);
-            }
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -284,7 +272,7 @@
             flex-wrap: wrap; 
             gap: 0.5rem; 
             justify-content: center; 
-            padding-bottom: 0.5rem; /* Added ~8px padding to prevent sticking to bottom */
+            padding-bottom: 0.5rem;
         }
         .hv-badge {
             padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.75rem; font-weight: 800;
@@ -299,7 +287,7 @@
         .capabilities-intro { text-align: center; max-width: 900px; margin: 0 auto 3rem; }
         .capabilities-intro h3 { font-size: 1.5rem; font-weight: 800; color: var(--accent-yellow); margin-bottom: 1rem; }
         .capabilities-intro-text {
-            font-size: 16.8px; /* Exactly as requested */
+            font-size: 16.8px;
             color: var(--text-secondary); 
             line-height: 1.8; 
             font-weight: 500;
@@ -331,7 +319,7 @@
             margin: 1rem auto 0; border-radius: 2px;
         }
 
-        /* --- Carousel --- */
+        /* --- Carousel (RTL FIXED) --- */
         .carousel-desktop-grid { display: grid; gap: 1.5rem; max-width: var(--container); margin: 0 auto; }
         #design-plans .carousel-desktop-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
         #seo-plans .carousel-desktop-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
@@ -340,7 +328,8 @@
         .carousel-mobile-stage { position: relative; max-width: var(--container); margin: 0 auto; overflow: hidden; padding-bottom: 3rem; }
         .carousel-track-container { width: 100%; overflow: visible; cursor: grab; padding: 10px 0 20px; }
         .carousel-track-container:active { cursor: grabbing; }
-        .carousel-track { display: flex; direction: ltr; will-change: transform; }
+        /* RTL FIX: direction set to rtl for proper right-to-left sliding */
+        .carousel-track { display: flex; direction: rtl; will-change: transform; }
         .carousel-slide { min-width: 100%; width: 100%; flex-shrink: 0; padding: 0 12px; direction: rtl; }
         
         .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
@@ -502,10 +491,10 @@
         .style-info h4 { font-weight: 800; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.3rem; }
         .style-info p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
 
-        /* --- Footer (Simplified & Clean) --- */
+        /* --- Footer --- */
         .site-footer {
             position: relative; overflow: hidden;
-            background: #020617; /* Clean, solid deep dark background */
+            background: #020617;
             border-top: 1px solid var(--glass-border);
             color: var(--text-secondary);
         }
@@ -520,7 +509,6 @@
             pointer-events: none;
             opacity: 0.4;
         }
-        /* Hide glowing orbs to prevent multi-colored glitches */
         .footer-glow, .footer-orb { display: none; }
         
         .footer-inner {
@@ -579,12 +567,12 @@
         @media (max-width: 1024px) {
             .hero-inner { 
                 grid-template-columns: 1fr; 
-                gap: 1rem; /* Reduced gap between copy and visual */
+                gap: 1rem;
                 text-align: center; 
             }
-            .hero-copy { order: 1; } /* Text on top */
+            .hero-copy { order: 1; }
             .hero-visual { 
-                order: 2; /* Visual on bottom */
+                order: 2;
                 min-height: 350px; 
                 transform: scale(0.9); 
                 transform-origin: top center; 
@@ -627,7 +615,6 @@
                 font-size: 0.9rem; 
             }
             
-            /* Force 4 badges into a single row on mobile */
             .hero-badges { 
                 display: flex;
                 flex-wrap: nowrap;
@@ -669,7 +656,6 @@
             .section-title { font-size: 1.6rem; margin-bottom: 2rem; }
             .section-title::after { width: 50px; }
 
-            /* Capabilities: 2 columns, stacked icon/text to keep font readable */
             .capabilities-grid { 
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 0.75rem; 
@@ -683,7 +669,6 @@
             }
             .cap-icon { width: 28px; height: 28px; min-width: 28px; }
 
-            /* Domains: 2 columns on mobile */
             .domains-grid { 
                 grid-template-columns: repeat(2, 1fr) !important; 
                 gap: 0.75rem; 
@@ -783,19 +768,21 @@
             const handleTouchEnd = () => {
                 if (!isDragging.current) return; isDragging.current = false;
                 const d = currentDragX.current - startX.current;
-                if (d < -40) nextSlide(); else if (d > 40) prevSlide(); else setDragOffset(0);
+                // RTL FIX: Swipe right goes to previous, swipe left goes to next
+                if (d > 40) nextSlide(); else if (d < -40) prevSlide(); else setDragOffset(0);
             };
             const handleMouseDown = e => { isDragging.current = true; startX.current = e.clientX; currentDragX.current = e.clientX; };
             const handleMouseMove = e => { if (!isDragging.current) return; currentDragX.current = e.clientX; setDragOffset(currentDragX.current - startX.current); };
             const handleMouseUpOrLeave = () => {
                 if (!isDragging.current) return; isDragging.current = false;
                 const d = currentDragX.current - startX.current;
-                if (d < -40) nextSlide(); else if (d > 40) prevSlide(); else setDragOffset(0);
+                if (d > 40) nextSlide(); else if (d < -40) prevSlide(); else setDragOffset(0);
             };
 
             if (!isMobile) return <div className="carousel-desktop-grid">{children}</div>;
 
-            const translateX = `calc(-${curr * 100}% + ${dragOffset}px)`;
+            // RTL FIX: Positive translateX for RTL direction
+            const translateX = `calc(${curr * 100}% + ${dragOffset}px)`;
             return (
                 <div className="carousel-mobile-stage" role="region" aria-roledescription="carousel" aria-label="اسلایدر">
                     <div className="carousel-track-container" 
@@ -918,7 +905,6 @@
                     </div>
                     <div className="plan-suitable">مناسب برای شروع سریع و اقتصادی</div>
                     <ul className="plan-features">
-                        <li><strong>خدمات</strong></li>
                         <li>طراحی سایت با قالب آماده</li>
                         <li>شخصی‌سازی کامل قالب بر اساس هویت و نیاز کسب‌وکار</li>
                         <li>طراحی صفحه اصلی + 4 صفحه داخلی</li>
@@ -944,7 +930,6 @@
                     </div>
                     <div className="plan-suitable">مناسب کسب‌وکارهای در حال رشد</div>
                     <ul className="plan-features">
-                        <li><strong>خدمات</strong></li>
                         <li>شامل تمام امکانات پلن پایه</li>
                         <li>افزایش صفحات تا 8 صفحه داخلی</li>
                         <li>ورود و دسته‌بندی تا 20 محصول یا خدمت</li>
@@ -967,7 +952,6 @@
                     </div>
                     <div className="plan-suitable">مناسب برندهایی که ظاهر حرفه‌ای و رشد سئو برایشان اهمیت دارد</div>
                     <ul className="plan-features">
-                        <li><strong>خدمات</strong></li>
                         <li>شامل تمام امکانات پلن استاندارد</li>
                         <li>طراحی اختصاصی با Elementor بدون وابستگی به قالب آماده</li>
                         <li>طراحی UI اختصاصی صفحات اصلی و لندینگ‌ها</li>
@@ -990,7 +974,6 @@
                     </div>
                     <div className="plan-suitable">مناسب استارتاپ‌ها و پروژه‌های اختصاصی</div>
                     <ul className="plan-features">
-                        <li><strong>خدمات</strong></li>
                         <li>طراحی UI/UX اختصاصی و ارائه Wireframe</li>
                         <li>توسعه سیستم اختصاصی بدون وابستگی به وردپرس</li>
                         <li>طراحی و پیاده‌سازی CMS و دیتابیس اختصاصی</li>
@@ -1016,7 +999,6 @@
                     </div>
                     <div className="plan-suitable">مناسب برای کسب‌وکارهایی که می‌خواهند به‌صورت مستمر رشد ارگانیک داشته باشند</div>
                     <ul className="plan-features">
-                        <li><strong>خدمات</strong></li>
                         <li>بررسی و تحلیل کوئری‌های ورودی از Google Search Console</li>
                         <li>اصلاح و بهینه‌سازی ساختار صفحات برای سئو فرندلی‌تر شدن</li>
                         <li>بهینه‌سازی تگ‌های عنوان، توضیحات متا و ساختار هدینگ‌ها</li>
@@ -1039,7 +1021,6 @@
                     </div>
                     <div className="plan-suitable">مناسب کسب‌وکارهایی که به دنبال رشد سریع‌تر در نتایج گوگل و توسعه اعتبار دامنه هستند</div>
                     <ul className="plan-features">
-                        <li><strong>خدمات</strong></li>
                         <li>شامل تمام امکانات پلن Growth Care</li>
                         <li>تولید، نگارش و انتشار 20 محتوای بلاگ سئو محور در ماه</li>
                         <li>تحلیل تخصصی رقبا و فرصت‌های رشد</li>
